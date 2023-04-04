@@ -1,0 +1,135 @@
+.container {
+  max-width: 721px;
+  margin: 0 auto;
+  padding: 85px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.formtitle {
+  display: block;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 auto 67px;
+  text-align: center;
+  color: #f0a500;
+  }
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #f0a500;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/*button[type="submit"] {
+  display: block;
+  width: 50px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0069d9;
+}*/
+
+button[type="Modifier"] {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+  padding: 10px;
+  background-color: #f0a500;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: auto; /* Ajout de cette ligne */
+  margin-bottom: 30px;
+}
+
+button[type="Modifier"]:hover {
+  background-color: #f0a500;
+}
+button {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #f0a500;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 30px;
+}
+
+button:hover {
+  background-color: #f0a500;
+}
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+/* Set the height and width of the image */
+img {
+  height: 150px;
+  width: 150px;
+}
+
+/* Remove the default border and outline for the image */
+img:focus, img:active {
+  border: none;
+  outline: none;
+}
+
+/* Add a hover effect to the image */
+img:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* Hide the image's alt text */
+img[alt="Modifier CV"] {
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
