@@ -1,3 +1,7 @@
+
+import EventTable from "./pages/Event/EventTable";
+import EnseignantTable from "./pages/Enseignant/EnseignantTable";
+
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
@@ -32,16 +36,22 @@ function App() {
     setloading(false);
   }, [user]);
 
-  return (
-    <div className="d-flex">
+  
+
+
+return(
+  <div className="d-flex">
       {!loading && (
         <BrowserRouter>
           {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
         </BrowserRouter>
       )}
     </div>
-  );
+  
+)
+    
 }
+
 
 const UnsignedRoutes = () => {
   return (
@@ -60,9 +70,9 @@ const SignedRoutes = ({ user }) => {
         <Routes>
           <Route path="dashboard" element={<></>} />
           <Route path="/students" element={<CrudStudent />} />
-          {/* <Route path="/enseignants" element={<CrudStudent />} />
-          <Route path="/events" element={<CrudStudent />} />
-          <Route path="/registeralumni" element={<RegisterAlumni />} />
+          <Route path="/enseignants" element={<EnseignantTable />} />
+          <Route path="/events" element={<EventTable/>} />
+          {/*<Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/resetPassword" element={<CrudStudent />} /> */}
           <Route path="/*" element={<Navigate to={"/students"} />} />
         </Routes>
