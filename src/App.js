@@ -1,15 +1,4 @@
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-import CreateEnseignant from "./pages/Enseignant/createEnseignant";
-import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
-import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
-import CreateEvent from "./pages/Event/createEvent";
-import DeleteEvent from "./pages/Event/deleteEvent";
-import UpdateEvent from "./pages/Event/updateEvent";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
 
@@ -17,27 +6,95 @@ import EnseignantTable from "./pages/Enseignant/EnseignantTable";
 
 
 
+import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
+import CrudStudent from "./components/crudStudent/CrudStudent";
+import Login from "./pages/Login/Login";
+import SideMenu from "./components/SideMenu/SideMenu";
+import { useEffect, useState } from "react";
+import { getUserByRole } from "./services/loginService";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
- 
-      
-         <Route path={`/updateEvent/:id`} element={<UpdateEvent/>} />
-         <Route path={`/DeleteEvent/:id`} element={<DeleteEvent/>} />
-         <Route path="/CreateEvent" element={<CreateEvent/>} />
-         <Route path="/EventTable" element={<EventTable/>} />
+  const [logged, setlogged] = useState(false);
+  const [loading, setloading] = useState(true);
+  const [user, setuser] = useState({
+    role: "",
+  });
 
-         <Route path="/EnseignantTable" element={<EnseignantTable />} />
-         <Route path="/CreateEnseignant" element={<CreateEnseignant/>} />
-         <Route path={`/updateEnseignant/:id`} element={<UpdateEnseignant/>} />
-         <Route path={`/deleteEnseignant/:id`} element={<DeleteEnseignant/>} />
+  const getRole = () => {
+    getUserByRole(
+      (data) => setuser(data),
+      () => {}
+    );
+  };
+
+  useEffect(() => {
+    const AUTH_TOKEN = "token";
+    const itemStr = localStorage.getItem(AUTH_TOKEN);
+    if (!itemStr) {
+      setlogged(false);
+    } else {
+      setlogged(true);
+      getRole();
+      console.log(user);
+    }
+    setloading(false);
+  }, [user]);
+
+  
 
 
-      </Routes>
-    </Router>
-  );
+
+    <div className="d-flex">
+      {!loading && (
+        <BrowserRouter>
+          {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
+        </BrowserRouter>
+      )}
+    </div>
+  
 }
+
+
+const UnsignedRoutes = () => {
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/*" element={<Navigate to={"/login"} />} />
+    </Routes>
+  );
+};
+
+const SignedRoutes = ({ user }) => {
+  return (
+    <>
+      <SideMenu user={user} />
+      {user === "ADMIN" && (
+        <Routes>
+          <Route path="dashboard" element={<></>} />
+          <Route path="/students" element={<CrudStudent />} />
+          {/* <Route path="/enseignants" element={<EnseignantTable />} />
+          <Route path="/events" element={<EventTable/>} />
+          <Route path="/registeralumni" element={<RegisterAlumni />} />
+          <Route path="/resetPassword" element={<CrudStudent />} /> */}
+          <Route path="/*" element={<Navigate to={"/students"} />} />
+        </Routes>
+      )}
+      {user === "Etudiant" && (
+        <Routes>
+          <Route path="profile" element={<></>} />
+          <Route path="/students" element={<CrudStudent />} />
+          <Route path="/*" element={<Navigate to={"/profile"} />} />
+        </Routes>
+      )}
+      {user === "Alumni" && (
+        <Routes>
+          <Route path="profile" element={<></>} />
+          <Route path="/students" element={<CrudStudent />} />
+          <Route path="/*" element={<Navigate to={"/profile"} />} />
+        </Routes>
+      )}
+    </>
+  );
+};
 
 export default App;
