@@ -1,7 +1,6 @@
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import "./changepass.css";
 import { useMemo } from "react";
 
