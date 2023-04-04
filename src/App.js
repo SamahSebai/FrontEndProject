@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Changepass from './pages/changePass/Changepass';
 import Alumnistatu from './pages/alumnistatu/Alumnistatu';
-import Register from './pages/register/Register';
+import RegisterAlumni from './pages/registerAlumni/RegisterAlumni';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Routes>
          <Route path={`/resetPassword`} element={<Changepass/>} />
          <Route path={`/alumnistatu`} element={<Alumnistatu/>} />
-         <Route path="/registeralumni" element={<Register/>}/>
+         <Route path="/registeralumni" element={<RegisterAlumni/>}/>
       </Routes>
     </Router>
   );

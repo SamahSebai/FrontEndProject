@@ -1,9 +1,9 @@
 import axios from "axios"
 import jwt_decode from 'jwt-decode'
 import { useState } from "react"
-import "./register.css"
+import "./registerAlumni.css"
 
-export default function Register() {
+export default function RegisterAlumni() {
   const [firstName , setfirstName] = useState("")
   const [lastName , setlastName] = useState("")
   const [address , setaddress] = useState("")
