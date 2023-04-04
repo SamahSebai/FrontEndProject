@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  FaTh,
-  FaBars,
-  FaUserAlt,
-  FaChalkboardTeacher,
-  FaCommentAlt,
-} from "react-icons/fa";
+import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher } from "react-icons/fa";
 import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
