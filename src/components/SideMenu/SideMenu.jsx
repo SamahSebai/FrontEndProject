@@ -47,22 +47,25 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/updateUser",
-      name: "updateUsernpm i ",
+      name: "updateUser",
       icon: <FaTh />,
     },
-
     {
-      path: "/UpdateCV",
-      name: "UpdateCV",
-      icon: <FaTh />,
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
     },
-  
   ];
   const menuItemAlumni = [
     {
       path: "/profile",
       name: "Profile",
       icon: <FaTh />,
+    },
+    {
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
     },
   ];
   return (
@@ -110,7 +113,7 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
-        {user === "Alumni" &&
+        {user === "ALumni" &&
           menuItemAlumni.map((item, index) => (
             <NavLink
               to={item.path}

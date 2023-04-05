@@ -1,34 +1,40 @@
 import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 
 function DeleteEnseignant() {
   const { id } = useParams();
   const [enseignant, setEnseignant] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    address: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    address: "",
   });
   const [error, setError] = useState(false);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.userId;
 
-  const config = useMemo(() => ({
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }), [token]);
+  const config = useMemo(
+    () => ({
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    [token]
+  );
 
   useEffect(() => {
     const fetchEnseignant = async () => {
       try {
-        const res = await axios.get(`http://localhost:4000/Api/V1/Enseignant/${id}`, config);
-        setEnseignant(res.data)
+        const res = await axios.get(
+          `http://localhost:4000/Api/V1/Enseignant/${id}`,
+          config
+        );
+        setEnseignant(res.data);
       } catch (err) {
         console.log(err);
       }
@@ -39,8 +45,11 @@ function DeleteEnseignant() {
   const handleDelete = async () => {
     try {
       setError(false);
-      const res = await axios.delete(`http://localhost:4000/Api/V1/Enseignant/${id}`, config);
-      window.location.replace(`/EnseignantTable`);
+      const res = await axios.delete(
+        `http://localhost:4000/Api/V1/Enseignant/${id}`,
+        config
+      );
+      window.location.replace(`/enseignants`);
     } catch (err) {
       console.log(err);
       setError(true);
@@ -55,7 +64,7 @@ function DeleteEnseignant() {
         <input
           type="text"
           name="firstName"
-          value={enseignant.firstName || ''}
+          value={enseignant.firstName || ""}
           disabled
         />
       </div>
@@ -64,7 +73,7 @@ function DeleteEnseignant() {
         <input
           type="text"
           name="lastName"
-          value={enseignant.lastName || ''}
+          value={enseignant.lastName || ""}
           disabled
         />
       </div>
@@ -73,7 +82,7 @@ function DeleteEnseignant() {
         <input
           type="text"
           name="email"
-          value={enseignant.email || ''}
+          value={enseignant.email || ""}
           disabled
         />
       </div>
@@ -82,7 +91,7 @@ function DeleteEnseignant() {
         <input
           type="text"
           name="password"
-          value={enseignant.password || ''}
+          value={enseignant.password || ""}
           disabled
         />
       </div>
@@ -91,7 +100,7 @@ function DeleteEnseignant() {
         <input
           type="text"
           name="address"
-          value={enseignant.address || ''}
+          value={enseignant.address || ""}
           disabled
         />
       </div>

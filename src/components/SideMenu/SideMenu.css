@@ -7,7 +7,7 @@ main{
 .sidebar{
     background: rgb(77, 195, 234);
     color: #fff;
-    height: 100vh;
+    height: 100%;
     transition: all 0.5s;
     float: left;
 }

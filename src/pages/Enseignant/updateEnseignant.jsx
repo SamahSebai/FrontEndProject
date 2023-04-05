@@ -1,7 +1,7 @@
-import axios from "axios"
-import React, { useEffect, useState, useMemo } from "react"
+import axios from "axios";
+import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import jwt_decode from 'jwt-decode';
+import jwt_decode from "jwt-decode";
 
 function UpdateEnseignant() {
   const { id } = useParams();
@@ -14,20 +14,26 @@ function UpdateEnseignant() {
     role: "Enseignant",
   });
   const [error, setError] = useState(false);
-  const token = localStorage.getItem('token');
-  
+  const token = localStorage.getItem("token");
+
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.userId;
-  const config = useMemo(() => ({
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }), [token]);
+  const config = useMemo(
+    () => ({
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    [token]
+  );
 
   useEffect(() => {
     const fetchEnseignant = async () => {
       try {
-        const resG = await axios.get(`http://localhost:4000/Api/V1/Enseignant/${id}`, config);
+        const resG = await axios.get(
+          `http://localhost:4000/Api/V1/Enseignant/${id}`,
+          config
+        );
         setEnseignant(resG.data);
       } catch (err) {
         console.log(err);
@@ -37,18 +43,20 @@ function UpdateEnseignant() {
   }, [id, config]);
 
   const handleInput = (e) => {
-    setEnseignant({ ...enseignant, [e.target.name]: e.target.value })
-  }
+    setEnseignant({ ...enseignant, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      
-      const res = await axios.put(`http://localhost:4000/Api/V1/Enseignant/${id}`, enseignant, config);
-      window.location.replace(`/EnseignantTable`);
+      const res = await axios.put(
+        `http://localhost:4000/Api/V1/Enseignant/${id}`,
+        enseignant,
+        config
+      );
+      window.location.replace(`/enseignants`);
     } catch (err) {
       console.log(err);
-      
     }
   };
 
@@ -60,7 +68,7 @@ function UpdateEnseignant() {
         <input
           type="text"
           name="firstName"
-          value={enseignant.firstName || ''}
+          value={enseignant.firstName || ""}
           onChange={handleInput}
         />
       </div>
@@ -69,7 +77,7 @@ function UpdateEnseignant() {
         <input
           type="text"
           name="lastName"
-          value={enseignant.lastName || ''}
+          value={enseignant.lastName || ""}
           onChange={handleInput}
         />
       </div>
@@ -78,7 +86,7 @@ function UpdateEnseignant() {
         <input
           type="email"
           name="email"
-          value={enseignant.email || ''}
+          value={enseignant.email || ""}
           onChange={handleInput}
         />
       </div>
@@ -87,7 +95,7 @@ function UpdateEnseignant() {
         <input
           type="password"
           name="password"
-          value={enseignant.password || ''}
+          value={enseignant.password || ""}
           onChange={handleInput}
         />
       </div>
@@ -96,7 +104,7 @@ function UpdateEnseignant() {
         <input
           type="text"
           name="address"
-          value={enseignant.address || ''}
+          value={enseignant.address || ""}
           onChange={handleInput}
         />
       </div>
@@ -105,7 +113,7 @@ function UpdateEnseignant() {
         <input
           type="text"
           name="role"
-          value={enseignant.role || ''}
+          value={enseignant.role || ""}
           onChange={handleInput}
           disabled
         />
