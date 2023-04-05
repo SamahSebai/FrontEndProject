@@ -32,6 +32,7 @@ function Updatecv() {
       try {
         const resG = await axios.get(`http://localhost:4000/Api/V1/Cv/${id}`, config);
         setEvent(resG.data)
+        console.log(resG.data);
         console.log("test",event);
       } catch (err) {
         console.log(err);
@@ -57,8 +58,9 @@ function Updatecv() {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <span className="formtitle">Mise à jour de Curriculum Vitae </span>
+
+    <form className="container1" onSubmit={handleSubmit}>
+      <span className="formtitle1">Mise à jour de Curriculum Vitae </span>
       <div>
         <label>Prénom</label>
         <input

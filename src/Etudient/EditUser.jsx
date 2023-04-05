@@ -128,7 +128,7 @@ function UpdateUser() {
       </div>
       <div>
         <label> Curriculum Vitae</label>
-        <img src="resume.png" alt="Modifier CV" onClick={() => navigate(`/updateCv/${event.Cv}`, { replace: true })} />
+        <img src="resume.png" alt="Modifier CV" onClick={() => navigate(`/UpdateCV/${event.Cv}`, { replace: true })} />
    {/* <button type="Modifier" onClick={() => navigate(`/updateCv/${event.Cv}`, { replace: true })} > Modifier CV </button>*/}
       </div>
       {error && <div className="error"> Erreur </div>}
