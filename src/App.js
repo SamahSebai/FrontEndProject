@@ -1,4 +1,6 @@
 
+import Updatecv from "./Cv/UpdateCv";
+import UpdateUser from "./Etudient/EditUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
 
@@ -79,9 +81,11 @@ const SignedRoutes = ({ user }) => {
       )}
       {user === "Etudiant" && (
         <Routes>
-          <Route path="profile" element={<></>} />
+        { /* <Route path="profile" element={<></>} />*/}
+          <Route path="/UpdateUser" element={<UpdateUser/>} />
+          <Route path="/UpdateCV/:id" element={<Updatecv/>} />
           <Route path="/students" element={<CrudStudent />} />
-          <Route path="/*" element={<Navigate to={"/profile"} />} />
+      { /*  <Route path="/*" element={<Navigate to={"/profile"} />} />*/}
         </Routes>
       )}
       {user === "Alumni" && (

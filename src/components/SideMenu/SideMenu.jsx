@@ -45,6 +45,18 @@ const SideMenu = ({ user }) => {
       name: "Profile",
       icon: <FaTh />,
     },
+    {
+      path: "/updateUser",
+      name: "updateUsernpm i ",
+      icon: <FaTh />,
+    },
+
+    {
+      path: "/UpdateCV",
+      name: "UpdateCV",
+      icon: <FaTh />,
+    },
+  
   ];
   const menuItemAlumni = [
     {
