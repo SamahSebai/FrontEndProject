@@ -68,6 +68,11 @@ const SideMenu = ({ user }) => {
       icon: <FaTh />,
     },
     {
+      path: "/updateUser",
+      name: "updateUser",
+      icon: <FaTh />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,

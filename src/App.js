@@ -12,7 +12,7 @@ import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
-import { getUserByRole } from "./services/loginService";
+import { getUserByRole , getEtat } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
@@ -24,6 +24,7 @@ import ValiderAlumni from "./pages/validerAlumni/ValiderAlumni";
 function App() {
   const [logged, setlogged] = useState(false);
   const [loading, setloading] = useState(true);
+  const [etat, setetat] = useState();
   const [user, setuser] = useState({
     role: "",
   });
@@ -31,6 +32,12 @@ function App() {
   const getRole = () => {
     getUserByRole(
       (data) => setuser(data),
+      () => {}
+    );
+  };
+  const getetat = () => {
+    getEtat(
+      (dataE) => setetat(dataE),
       () => {}
     );
   };
@@ -43,7 +50,9 @@ function App() {
     } else {
       setlogged(true);
       getRole();
+      getetat();
       console.log(user);
+      console.log(etat);
     }
     setloading(false);
   }, [user]);
@@ -52,7 +61,7 @@ function App() {
     <div className="d-flex">
       {!loading && (
         <BrowserRouter>
-          {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
+          {logged ? <SignedRoutes user={user} etat={etat} /> : <UnsignedRoutes />}
         </BrowserRouter>
       )}
     </div>
@@ -68,7 +77,7 @@ const UnsignedRoutes = () => {
   );
 };
 
-const SignedRoutes = ({ user }) => {
+const SignedRoutes = ({ user ,etat }) => {
   return (
     <>
       <SideMenu user={user} />
@@ -103,8 +112,15 @@ const SignedRoutes = ({ user }) => {
       {user === "ALumni" && (
         <Routes>
           <Route path="profile" element={<Alumnistatu />} />
-          <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+          {etat===true &&(
+            <>
+            <Route path="/UpdateUser" element={<UpdateUser />} />
+            <Route path="/UpdateCV/:id" element={<Updatecv />} />
+            <Route path="/students" element={<CrudStudent />} />
+            <Route path="/resetPassword" element={<Changepass />} />
+            </>
+          )}
         </Routes>
       )}
     </>
