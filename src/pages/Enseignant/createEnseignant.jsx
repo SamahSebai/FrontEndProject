@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
-
 function CreateEnseignant() {
   const makeheader = () => {
     const token = localStorage.getItem("token");
@@ -41,8 +40,7 @@ function CreateEnseignant() {
         enseignant,
         makeheader()
       );
-      window.location.replace(`/EnseignantTable`);
-      
+      window.location.replace(`/enseignants`);
     } catch (err) {
       console.log(err);
     }

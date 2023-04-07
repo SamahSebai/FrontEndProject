@@ -1,7 +1,6 @@
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import "./changepass.css";
 import { useMemo } from "react";
 
@@ -71,13 +70,14 @@ useEffect(() => {
   };
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <span className="formtitle">Reset Password </span>
+    <form className="containerAhlem" onSubmit={handleSubmit}>
+      <span className="formtitleAhlem">Reset Password </span>
       <div>
         <label htmlFor="current-password">Current Password:</label>
         <input
           type="password"
           id="current-password"
+          className="passAhlem"
           value={currentPassword}
           onChange={(event) => setCurrentPassword(event.target.value)}
         />
@@ -87,6 +87,7 @@ useEffect(() => {
         <input
           type="password"
           id="new-password"
+          className="passAhlem"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         />
@@ -96,6 +97,7 @@ useEffect(() => {
         <input
           type="password"
           id="confirm-new-password"
+          className="passAhlem"
           value={confirmNewPassword}
           onChange={(event) => setConfirmNewPassword(event.target.value)}
         />

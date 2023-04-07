@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher } from "react-icons/fa";
+import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher , FaCheckSquare} from "react-icons/fa";
 import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
@@ -34,6 +34,11 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
+      path: "/valideralumni",
+      name: "Valider invité",
+      icon: <FaCheckSquare />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
@@ -47,22 +52,25 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/updateUser",
-      name: "updateUsernpm i ",
+      name: "updateUser",
       icon: <FaTh />,
     },
-
     {
-      path: "/UpdateCV",
-      name: "UpdateCV",
-      icon: <FaTh />,
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
     },
-  
   ];
   const menuItemAlumni = [
     {
       path: "/profile",
       name: "Profile",
       icon: <FaTh />,
+    },
+    {
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
     },
   ];
   return (
@@ -110,7 +118,7 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
-        {user === "Alumni" &&
+        {user === "ALumni" &&
           menuItemAlumni.map((item, index) => (
             <NavLink
               to={item.path}

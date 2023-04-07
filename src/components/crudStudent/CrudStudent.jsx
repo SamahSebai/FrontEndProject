@@ -153,7 +153,11 @@ const CrudStudent = () => {
 
       {popup ? (
         <div className=" custom-popup">
-          <form class="form-center p-2" onSubmit={handleSubmit}>
+          <form
+            class="form-center p-2"
+            onSubmit={handleSubmit}
+            id="formstudent"
+          >
             <legend>{id ? "Update a Student" : "Add a Student"}</legend>
 
             <div className="d-flex justify-content-between">

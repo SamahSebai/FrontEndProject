@@ -1,3 +1,6 @@
+import Changepass from "./pages/changePass/Changepass";
+import Alumnistatu from "./pages/alumnistatu/Alumnistatu";
+import RegisterAlumni from "./pages/registerAlumni/RegisterAlumni";
 
 import Updatecv from "./Cv/UpdateCv";
 import UpdateUser from "./Etudient/EditUser";
@@ -10,6 +13,13 @@ import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
 import { getUserByRole } from "./services/loginService";
+import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
+import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
+import DeleteEvent from "./pages/Event/deleteEvent";
+import CreateEnseignant from "./pages/Enseignant/createEnseignant";
+import CreateEevent from "./pages/Event/createEvent";
+import UpdateEvent from "./pages/Event/updateEvent";
+import ValiderAlumni from "./pages/validerAlumni/ValiderAlumni";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -38,22 +48,16 @@ function App() {
     setloading(false);
   }, [user]);
 
-  
-
-
-return(
-  <div className="d-flex">
+  return (
+    <div className="d-flex">
       {!loading && (
         <BrowserRouter>
           {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
         </BrowserRouter>
       )}
     </div>
-  
-)
-    
+  );
 }
-
 
 const UnsignedRoutes = () => {
   return (
@@ -73,25 +77,33 @@ const SignedRoutes = ({ user }) => {
           <Route path="dashboard" element={<></>} />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
-          <Route path="/events" element={<EventTable/>} />
-          {/*<Route path="/registeralumni" element={<RegisterAlumni />} />
-          <Route path="/resetPassword" element={<CrudStudent />} /> */}
-          <Route path="/*" element={<Navigate to={"/students"} />} />
+          <Route path="/CreateEnseignant" element={<CreateEnseignant />} />
+          <Route path="/CreateEvent" element={<CreateEevent />} />
+          <Route path="/updateEnseignant/:id" element={<UpdateEnseignant />} />
+          <Route path="/deleteEnseignant/:id" element={<DeleteEnseignant />} />
+          <Route path="/updateEvent/:id" element={<UpdateEvent />} />
+          <Route path="/deleteEvent/:id" element={<DeleteEvent />} />
+          <Route path="/events" element={<EventTable />} />
+          <Route path="/registeralumni" element={<RegisterAlumni />} />
+          <Route path="/valideralumni" element={<ValiderAlumni/>} />
+          <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
       {user === "Etudiant" && (
         <Routes>
-        { /* <Route path="profile" element={<></>} />*/}
-          <Route path="/UpdateUser" element={<UpdateUser/>} />
-          <Route path="/UpdateCV/:id" element={<Updatecv/>} />
+          {/* <Route path="profile" element={<></>} />*/}
+          <Route path="/UpdateUser" element={<UpdateUser />} />
+          <Route path="/UpdateCV/:id" element={<Updatecv />} />
           <Route path="/students" element={<CrudStudent />} />
-      { /*  <Route path="/*" element={<Navigate to={"/profile"} />} />*/}
+          <Route path="/resetPassword" element={<Changepass />} />
+          {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
         </Routes>
       )}
-      {user === "Alumni" && (
+      {user === "ALumni" && (
         <Routes>
-          <Route path="profile" element={<></>} />
-          <Route path="/students" element={<CrudStudent />} />
+          <Route path="profile" element={<Alumnistatu />} />
+          <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
         </Routes>
       )}
