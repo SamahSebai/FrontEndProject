@@ -83,7 +83,7 @@ const SignedRoutes = ({ user }) => {
         <Routes>
         { /* <Route path="profile" element={<></>} />*/}
           <Route path="/UpdateUser" element={<UpdateUser/>} />
-          <Route path="/UpdateCV/:id" element={<Updatecv/>} />
+          <Route path="/UpdateCV" element={<Updatecv  />} />
           <Route path="/students" element={<CrudStudent />} />
       { /*  <Route path="/*" element={<Navigate to={"/profile"} />} />*/}
         </Routes>
