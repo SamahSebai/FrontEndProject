@@ -13,6 +13,8 @@ export default function RegisterAlumni() {
   const [Specialite, setSpecialite] = useState("");
   const [visibilite, setvisibilite] = useState(true);
   const [diplome, setdiplome] = useState(true);
+  const [dateDiplome, setdateDiplome] = useState();
+  const [dateEmbouche, setdateEmbouche] = useState();
   const [role, setrole] = useState("ALumni");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,6 +49,8 @@ export default function RegisterAlumni() {
           Specialite,
           visibilite,
           diplome,
+          dateDiplome,
+          dateEmbouche,
           role,
           email,
           password,
@@ -160,6 +164,14 @@ export default function RegisterAlumni() {
               <option value={false}>--No ,I havent--</option>
             </select>
           </div>
+          <div>
+          <label for="date">Diploma date:</label>
+          <input type="date" id="date" class="form-control" name="dateDiplome" onChange={(e) => setdateDiplome(e.target.value)}/>
+          </div>
+          <div>
+          <label for="date">Hire date:</label>
+          <input type="date" id="date" class="form-control" name="dateEmbouche" onChange={(e) => setdateEmbouche(e.target.value)}/>
+          </div>
           <div class="form-group">
             <label for="email">Email:</label>
             <input
@@ -182,6 +194,7 @@ export default function RegisterAlumni() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
+
           <button type="submit" class="btn btn-primary">
             Register
           </button>
