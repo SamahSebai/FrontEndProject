@@ -1,0 +1,44 @@
+.card1 {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    margin: 50px auto;
+    max-width: 1000px;
+    padding: 20px;
+  }
+  
+  .h1 {
+    color: #333333;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color:rgb(77, 195, 234);
+    text-decoration:underline;
+
+  }
+  
+  .h4 {
+    color: #333333;
+    font-size: 20px;
+    margin-top: 40px;
+  }
+  
+  .charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .canvas {
+    margin: 70px;
+    background-color: #f5f5f5;
+
+  }
+  .canvas1 {
+    margin: 70px;
+    padding: 80px;
+    background-color: #f5f5f5;
+
+  }
+  
