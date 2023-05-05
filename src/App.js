@@ -21,6 +21,9 @@ import CreateEevent from "./pages/Event/createEvent";
 import UpdateEvent from "./pages/Event/updateEvent";
 import ValiderAlumni from "./pages/validerAlumni/ValiderAlumni";
 import Statistiques from "./pages/statistiques/Statistiques";
+import Demande from "./pages/demande/Demande";
+import Expert from "./pages/expert/Expert";
+import Vacation from "./pages/vacation/Vacation";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -97,6 +100,8 @@ const SignedRoutes = ({ user ,etat }) => {
           <Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/valideralumni" element={<ValiderAlumni/>} />
           <Route path="/statistiques" element={<Statistiques/>} />
+          <Route path="/Dexpert" element={<Expert/>} />
+          <Route path="/Dvacation" element={<Vacation/>} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
@@ -120,6 +125,7 @@ const SignedRoutes = ({ user ,etat }) => {
             <Route path="/UpdateUser" element={<UpdateUser />} />
             <Route path="/UpdateCV/:id" element={<Updatecv />} />
             <Route path="/students" element={<CrudStudent />} />
+            <Route path="/demande" element={<Demande/>} />
             <Route path="/resetPassword" element={<Changepass />} />
             </>
           )}

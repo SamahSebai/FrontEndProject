@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher , FaCheckSquare, FaChartLine} from "react-icons/fa";
+import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher , FaCheckSquare, FaChartLine, FaFileMedical,FaGlasses,FaUserTie} from "react-icons/fa";
 import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
@@ -44,6 +44,16 @@ const SideMenu = ({ user }) => {
       icon: <FaChartLine />,
     },
     {
+      path: "/Dexpert",
+      name: "expert requests",
+      icon: <FaGlasses />,
+    },
+    {
+      path: "/Dvacation",
+      name: "Vacation requests",
+      icon: <FaUserTie />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
@@ -76,6 +86,11 @@ const SideMenu = ({ user }) => {
       path: "/updateUser",
       name: "updateUser",
       icon: <FaTh />,
+    },
+    {
+      path: "/demande",
+      name: "Demandes",
+      icon: <FaFileMedical />,
     },
     {
       path: "/resetPassword",

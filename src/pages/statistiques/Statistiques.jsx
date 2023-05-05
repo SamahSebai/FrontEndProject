@@ -205,7 +205,7 @@ const Statistiques = () => {
 
   return (
     <div className="card1">
-      <center><h1 className="h1">Chat Statistics Dashboard</h1></center>      
+      <center><h1 className="h1">Chart Statistics Dashboard</h1></center>      
     <div className="charts">
       <h4 className="h4">Accounts by Country</h4>
       <Pie title="Accounts by Country" data={accountChartData}  className="canvas1"/>
