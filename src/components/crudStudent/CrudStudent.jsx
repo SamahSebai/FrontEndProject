@@ -23,6 +23,7 @@ const CrudStudent = () => {
   const [etudiants, setetudiants] = useState([]);
   const [popup, setpopup] = useState(false);
   const [loading, setloading] = useState(false);
+  const [alumni, setalumni] = useState(false);
 
   const togglePopup = () => {
     setpopup(!popup);
@@ -216,31 +217,33 @@ const CrudStudent = () => {
               )}
             </div>
 
-            <div className="d-flex justify-content-between">
-              <div class="form-group w-50 mx-2">
-                <label for="">Niveau</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="niveau"
-                  placeholder="niveau"
-                  value={niveau}
-                  onChange={(e) => setniveau(e.target.value)}
-                />
-              </div>
+            {alumni && (
+              <div className="d-flex justify-content-between">
+                <div class="form-group w-50 mx-2">
+                  <label for="">Niveau</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="niveau"
+                    placeholder="niveau"
+                    value={niveau}
+                    onChange={(e) => setniveau(e.target.value)}
+                  />
+                </div>
 
-              <div class="form-group w-50 mx-2">
-                <label for="">Classe</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="classe"
-                  placeholder="classe"
-                  value={classe}
-                  onChange={(e) => setclasse(e.target.value)}
-                />
+                <div class="form-group w-50 mx-2">
+                  <label for="">Classe</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="classe"
+                    placeholder="classe"
+                    value={classe}
+                    onChange={(e) => setclasse(e.target.value)}
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
             <div className="d-flex justify-content-between">
               <div class="form-group w-50 mx-2">
@@ -267,7 +270,14 @@ const CrudStudent = () => {
                   class="form-control w-100"
                   required="required"
                   value={role}
-                  onChange={(e) => setrole(e.target.value)}
+                  onChange={(e) => {
+                    setrole(e.target.value);
+                    setalumni(!alumni);
+                    if (alumni) {
+                      setclasse("");
+                      setniveau("");
+                    }
+                  }}
                 >
                   <option />
                   <option value="Etudiant">Etudiant</option>
