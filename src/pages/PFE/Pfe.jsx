@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Pfe.css";
 import { addPfe } from "../../services/PfeService";
+import { makeDate2 } from "../../DateParse";
 
 const Pfe = () => {
   const [specialite, setSpecialite] = useState("");
@@ -97,7 +98,7 @@ const Pfe = () => {
           <input
             type="date"
             class="form-control"
-            value={dateDebut}
+            value={makeDate2(dateDebut)}
             placeholder="la date de début de votre pfa"
             onChange={(e) => setdateDebut(e.target.value)}
           />
@@ -108,7 +109,7 @@ const Pfe = () => {
           <input
             type="date"
             class="form-control"
-            value={dateFin}
+            value={makeDate2(dateFin)}
             placeholder="la date de fin de votre pfa"
             onChange={(e) => setdateFin(e.target.value)}
           />
