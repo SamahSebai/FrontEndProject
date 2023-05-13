@@ -42,6 +42,16 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
+      path: "/listepfe",
+      name: "Liste des PFEs",
+      icon: <MdEmojiPeople />,
+    },
+    {
+      path: "/statistiques_pfe",
+      name: "Statistiques des pfes",
+      icon: <MdEmojiPeople />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,

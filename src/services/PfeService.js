@@ -39,3 +39,16 @@ export const addPfe = async (
     console.log(err);
   }
 };
+
+export const getPFEs = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFE`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
