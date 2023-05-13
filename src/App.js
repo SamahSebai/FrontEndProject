@@ -21,7 +21,6 @@ import CreateEevent from "./pages/Event/createEvent";
 import UpdateEvent from "./pages/Event/updateEvent";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
-import AddMultipleStudents from "./pages/addMultipleStudents/AddMultipleStudents";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -88,7 +87,6 @@ const SignedRoutes = ({ user }) => {
           <Route path="/events" element={<EventTable />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/resetPassword" element={<Changepass />} />
-          <Route path="/addStudentsFile" element={<AddMultipleStudents />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
