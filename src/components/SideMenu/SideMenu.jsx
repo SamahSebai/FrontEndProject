@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher } from "react-icons/fa";
+import {
+  FaTh,
+  FaBars,
+  FaUserAlt,
+  FaChalkboardTeacher,
+  FaProjectDiagram,
+} from "react-icons/fa";
 import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
+import { AiOutlineProject } from "react-icons/ai";
+import { GrUpdate } from "react-icons/gr";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
 
@@ -38,6 +46,11 @@ const SideMenu = ({ user }) => {
       name: "Reset Password",
       icon: <MdPassword />,
     },
+    {
+      path: "/addStudentsFile",
+      name: "Add students using an excel file",
+      icon: <MdPassword />,
+    },
   ];
   const menuItemEtudiant = [
     {
@@ -48,7 +61,17 @@ const SideMenu = ({ user }) => {
     {
       path: "/updateUser",
       name: "updateUser",
-      icon: <FaTh />,
+      icon: <GrUpdate />,
+    },
+    {
+      path: "/addPFA",
+      name: "add PFA",
+      icon: <FaProjectDiagram />,
+    },
+    {
+      path: "/addStage",
+      name: "add Stage été",
+      icon: <AiOutlineProject />,
     },
     {
       path: "/resetPassword",

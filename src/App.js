@@ -19,6 +19,9 @@ import DeleteEvent from "./pages/Event/deleteEvent";
 import CreateEnseignant from "./pages/Enseignant/createEnseignant";
 import CreateEevent from "./pages/Event/createEvent";
 import UpdateEvent from "./pages/Event/updateEvent";
+import Pfe from "./pages/PFE/Pfe";
+import Stage from "./pages/Stage/Stage";
+import AddMultipleStudents from "./pages/addMultipleStudents/AddMultipleStudents";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -85,6 +88,7 @@ const SignedRoutes = ({ user }) => {
           <Route path="/events" element={<EventTable />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/addStudentsFile" element={<AddMultipleStudents />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
@@ -93,7 +97,8 @@ const SignedRoutes = ({ user }) => {
           {/* <Route path="profile" element={<></>} />*/}
           <Route path="/UpdateUser" element={<UpdateUser />} />
           <Route path="/UpdateCV/:id" element={<Updatecv />} />
-          <Route path="/students" element={<CrudStudent />} />
+          <Route path="/addPFA" element={<Pfe />} />
+          <Route path="/addStage" element={<Stage />} />
           <Route path="/resetPassword" element={<Changepass />} />
           {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
         </Routes>

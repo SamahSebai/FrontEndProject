@@ -7,9 +7,10 @@ main{
 .sidebar{
     background: rgb(77, 195, 234);
     color: #fff;
-    height: 100%;
+    height: 200%;
     transition: all 0.5s;
     float: left;
+    overflow: hidden;
 }
 .top_section{
     display: flex;
