@@ -18,6 +18,7 @@ const PFEList = () => {
           Titre={pfe.Titre}
           Societe={pfe.Societe}
           Sujet={pfe.Sujet}
+          Pays={pfe.Pays}
           dateDebut={pfe.DateDebut}
           dateFin={pfe.DateFin}
         />
