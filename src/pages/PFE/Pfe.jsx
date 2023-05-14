@@ -8,30 +8,23 @@ const Pfe = () => {
   const [titre, setTitre] = useState("");
   const [sujet, setsujet] = useState("");
   const [societe, setsociete] = useState("");
-  const [dateDebut, setdateDebut] = useState("");
-  const [dateFin, setdateFin] = useState("");
+  const [DateDebut, setdateDebut] = useState("");
+  const [DateFin, setdateFin] = useState("");
   const [technologie, setTechnologie] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const start = new Date(dateDebut);
-    const end = new Date(dateFin);
-    console.log(start.getMonth() - end.getMonth());
-
-    if (start && end && end.getMonth() - start.getMonth() >= 3) {
-      alert("aw bech nzyd");
-      addPfe(
-        titre,
-        specialite,
-        societe,
-        specialite,
-        technologie,
-        dateDebut,
-        dateFin
-      );
-    } else {
-      alert("nejmch nzyd");
-    }
+    addPfe(
+      titre,
+      specialite,
+      societe,
+      specialite,
+      technologie,
+      DateDebut,
+      DateFin
+    );
+    console.log(DateDebut);
+    console.log(DateFin);
   };
   return (
     <div style={{ flexGrow: 1 }} className="p-2">
@@ -50,7 +43,7 @@ const Pfe = () => {
         </div>
 
         <div class="form-group">
-          <label for="">Description</label>
+          <label for="">Sujet du PFE</label>
           <input
             type="text"
             class="form-control"
@@ -98,7 +91,7 @@ const Pfe = () => {
           <input
             type="date"
             class="form-control"
-            value={makeDate2(dateDebut)}
+            value={makeDate2(DateDebut)}
             placeholder="la date de début de votre pfa"
             onChange={(e) => setdateDebut(e.target.value)}
           />
@@ -109,7 +102,7 @@ const Pfe = () => {
           <input
             type="date"
             class="form-control"
-            value={makeDate2(dateFin)}
+            value={makeDate2(DateFin)}
             placeholder="la date de fin de votre pfa"
             onChange={(e) => setdateFin(e.target.value)}
           />

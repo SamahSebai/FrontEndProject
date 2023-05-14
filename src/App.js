@@ -95,7 +95,7 @@ const SignedRoutes = ({ user }) => {
           {/* <Route path="profile" element={<></>} />*/}
           <Route path="/UpdateUser" element={<UpdateUser />} />
           <Route path="/UpdateCV/:id" element={<Updatecv />} />
-          <Route path="/addPFA" element={<Pfe />} />
+          <Route path="/addPFE" element={<Pfe />} />
           <Route path="/addStage" element={<Stage />} />
           <Route path="/resetPassword" element={<Changepass />} />
           {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}

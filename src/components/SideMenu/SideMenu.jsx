@@ -64,8 +64,8 @@ const SideMenu = ({ user }) => {
       icon: <GrUpdate />,
     },
     {
-      path: "/addPFA",
-      name: "add PFA",
+      path: "/addPFE",
+      name: "add PFE",
       icon: <FaProjectDiagram />,
     },
     {
