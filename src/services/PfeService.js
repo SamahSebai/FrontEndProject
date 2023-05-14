@@ -16,6 +16,7 @@ export const addPfe = async (
   Sujet,
   Societe,
   Specialite,
+  Pays,
   Technologie,
   DateDebut,
   DateFin
@@ -28,6 +29,7 @@ export const addPfe = async (
         Sujet,
         Societe,
         Specialite,
+        Pays,
         Technologie,
         DateDebut,
         DateFin,

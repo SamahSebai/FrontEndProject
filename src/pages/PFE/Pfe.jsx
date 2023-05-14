@@ -4,10 +4,11 @@ import { addPfe } from "../../services/PfeService";
 import { makeDate2 } from "../../DateParse";
 
 const Pfe = () => {
-  const [specialite, setSpecialite] = useState("");
   const [titre, setTitre] = useState("");
+  const [specialite, setSpecialite] = useState("");
   const [sujet, setsujet] = useState("");
   const [societe, setsociete] = useState("");
+  const [pays, setpays] = useState("");
   const [DateDebut, setdateDebut] = useState("");
   const [DateFin, setdateFin] = useState("");
   const [technologie, setTechnologie] = useState("");
@@ -16,9 +17,10 @@ const Pfe = () => {
     e.preventDefault();
     addPfe(
       titre,
-      specialite,
+      sujet,
       societe,
       specialite,
+      pays,
       technologie,
       DateDebut,
       DateFin
@@ -37,7 +39,7 @@ const Pfe = () => {
             type="text"
             class="form-control"
             value={titre}
-            placeholder="le titre de votre projet pfa"
+            placeholder="le titre de votre projet pfe"
             onChange={(e) => setTitre(e.target.value)}
           />
         </div>
@@ -75,6 +77,21 @@ const Pfe = () => {
           />
         </div>
 
+        <div class="form-group">
+          <label for="">Pays</label>
+          <select
+            class="form-control"
+            required="required"
+            value={pays}
+            onChange={(e) => {
+              setpays(e.target.value);
+            }}
+          >
+            <option selected />
+            <option value="Tunisie">Tunisie</option>
+            <option value="Ailleurs">Ailleurs</option>
+          </select>
+        </div>
         <div class="form-group">
           <label for="">Technologies</label>
           <input
