@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./PFEList.css";
 import { getPFEs } from "../../services/PfeService";
 import ElemPFE from "../PFEelem/ElemPFE";
 
@@ -10,15 +11,15 @@ const PFEList = () => {
     }, {});
   }, []);
   return (
-    <div>
+    <div className="cards p-2">
       {pfes.map((pfe) => (
         <ElemPFE
           key={pfe._id}
           Titre={pfe.Titre}
           Societe={pfe.Societe}
           Sujet={pfe.Sujet}
-          dateDebut={pfe.dateDebut}
-          dateFin={pfe.dateFin}
+          dateDebut={pfe.DateDebut}
+          dateFin={pfe.DateFin}
         />
       ))}
     </div>
