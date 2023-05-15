@@ -41,3 +41,42 @@ export const addPfe = async (
     console.log(err);
   }
 };
+
+export const getpfenonaffecte = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/enseignant_PFE`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+
+export const getpfeaffecte = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/enseignant_affecte`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+
+export const selectpfe = async (_id, toggle) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/selectpfe/${_id}`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      toggle();
+      window.location.reload();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
