@@ -26,6 +26,7 @@ function ValiderAlumni() {
     fetchData();
   }, [config]);
 
+
   const handleButtonClick = async (rowId) => {
     try {
       const res = await axios.put(`http://localhost:4000/Api/V1/Alumni/${rowId}`, {etat:true}, config);
@@ -36,13 +37,27 @@ function ValiderAlumni() {
     }
   };
 
+
+
+  const handleRefuseClick = async (rowId) => {
+    try {
+      const res = await axios.put(`http://localhost:4000/Api/V1/Alumni/${rowId}`, {etat:false}, config);
+      console.log(res);
+      window.location.replace("/valideralumni");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
-    <div style={{ flexGrow: 1 }} className="p-2" id="contain">
-      <h1>Liste des invités</h1>
+  <center>
+    <div style={{ flexGrow: 1 }}  className="cardAl"  id="card1">
+    <h1 className="valider">Liste des invité</h1>
       {error && <p>Une erreur est survenue lors de la récupération des données.</p>}
       {!error && (
-        <div className="table-responsive">
+        <div>
           <table className="table table-striped">
+
             <thead>
               <tr>
                 <th>Nom</th>
@@ -52,6 +67,56 @@ function ValiderAlumni() {
                 <th>Specialite</th>
                 <th>Rôle</th>
                 <th>valider</th>
+                <th>refuser</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((row) => {
+                if (row.etat==null) {
+                  return (
+                    <tr key={row._id}>
+                      <td>{row.firstName}</td>
+                      <td>{row.lastName}</td>
+                      <td>{row.email}</td>
+                      <td>{row.address}</td>
+                      <td>{row.Specialite}</td>
+                      <td>{row.role}</td>
+                      <td>
+                        <button type="button" className="btn btn-primary" onClick={() => handleButtonClick(row._id)}>
+                          valider
+                        </button>
+                        
+                        </td>
+                        <td>
+                        <button type="button" className="btn btn-primary" onClick={() => handleRefuseClick(row._id)}>
+                          refuser
+                        </button>
+                  </td>
+                    </tr>
+                  );
+                }
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </div>
+
+
+    <div style={{ flexGrow: 1 }}  id="card1" className="cardAl">
+      <h1 className="refuser">Liste des refusé</h1>
+      {error && <p>Une erreur est survenue lors de la récupération des données.</p>}
+      {!error && (
+        <div >
+          <table className="table table-striped">
+            <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>email</th>
+                <th>address</th>
+                <th>Specialite</th>
+                <th>Rôle</th>
               </tr>
             </thead>
             <tbody>
@@ -65,11 +130,6 @@ function ValiderAlumni() {
                       <td>{row.address}</td>
                       <td>{row.Specialite}</td>
                       <td>{row.role}</td>
-                      <td>
-                        <button type="button" className="btn btn-primary" onClick={() => handleButtonClick(row._id)}>
-                          valider
-                        </button>
-                      </td>
                     </tr>
                   );
                 }
@@ -79,6 +139,7 @@ function ValiderAlumni() {
         </div>
       )}
     </div>
+  </center>
   );
 }
 

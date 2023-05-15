@@ -24,6 +24,9 @@ import Statistiques from "./pages/statistiques/Statistiques";
 import Demande from "./pages/demande/Demande";
 import Expert from "./pages/expert/Expert";
 import Vacation from "./pages/vacation/Vacation";
+import AddBlog from "./pages/crudBlog/AddBlog";
+import ShowBlogs from "./pages/crudBlog/ShowBlogs";
+import UpdateBlog from "./pages/crudBlog/UpdateBlog";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -118,12 +121,17 @@ const SignedRoutes = ({ user ,etat }) => {
       )}
       {user === "ALumni" && (
         <Routes>
+          {//here showBlogs and updateblog are not related to etat alumni becouse he cant add blog so he cant update 
+          }
           <Route path="profile" element={<Alumnistatu />} />
+          <Route path="/updateBlog/:id" element={<UpdateBlog/>} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
           {etat===true &&(
             <>
+            <Route path="/showblogs" element={<ShowBlogs/>} />
             <Route path="/UpdateUser" element={<UpdateUser />} />
             <Route path="/UpdateCV/:id" element={<Updatecv />} />
+            <Route path="/addblog" element={<AddBlog/>} />
             <Route path="/students" element={<CrudStudent />} />
             <Route path="/demande" element={<Demande/>} />
             <Route path="/resetPassword" element={<Changepass />} />
