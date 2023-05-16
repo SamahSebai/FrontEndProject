@@ -46,7 +46,6 @@ function CreateEevent() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       setError(false);
       const res = await axios.post(

@@ -111,7 +111,7 @@ const Statistiques = () => {
     labels: Object.keys(sociétéCounts),
     datasets: [
       {
-        label: "Accounts by Country",
+        label: "Accounts by company",
         data: Object.values(sociétéCounts),
         backgroundColor: [
           "#FF6384",
@@ -162,7 +162,7 @@ const Statistiques = () => {
     labels: Object.keys(promotionCounts),
     datasets: [
       {
-        label: "promotion by Country",
+        label: "accounts by promotion",
         data: Object.values(promotionCounts),
         backgroundColor: [
           "#FF6384",
@@ -187,18 +187,36 @@ const Statistiques = () => {
     .filter(([promotion]) => !promotion.includes("undefined"))
     .map(([promotion, count]) => <div key={promotion}>{`${promotion}: ${count}`}</div>);
 
+
+    let totalDays = 0;
+    let count = 0;
+    for (const compte of accountData) {
+      const diplome = compte.dateDiplome;
+      const hire = compte.dateEmbouche;
+      if (diplome && hire) {
+        const diffTime = Math.abs(new Date(hire) - new Date(diplome));
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        totalDays += diffDays;
+        count++;
+      } 
+    }
+    const avgChomage = totalDays / count;
+    
+
   return (
     <div className="card1">
-      <center><h1 className="h1">Chat Statistics Dashboard</h1></center>      
+      <center><h1 className="h1">Chart Statistics Dashboard</h1></center>      
     <div className="charts">
       <h4 className="h4">Accounts by Country</h4>
       <Pie title="Accounts by Country" data={accountChartData}  className="canvas1"/>
       <h4 className="h4">Accounts by Company</h4>
       <Bar title="Accounts by Company" data={accountChart2Data} className="canvas" />
       <h4 className="h4">Accounts by promotion</h4>
-      <Line title="Accounts by promotion" data={accountChart3Data}  className="canvas"/>
+      <Line title="accounts by promotion" data={accountChart3Data}  className="canvas"/>
 
     </div>
+    <center><h3 className="h3">AVG UNEMOLOYMENT DAYS : {avgChomage} </h3></center>
+
     </div>
     
   );

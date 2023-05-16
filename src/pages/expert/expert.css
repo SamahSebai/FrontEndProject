@@ -1,0 +1,44 @@
+.page {
+    background-color: #ffffff;
+    margin: 50px auto;
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .cardDemande {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .content {
+    margin-left: 150px;
+  }
+  .titleD{
+    background-color:rgb(77, 195, 234);
+    color: white;
+    padding: 20px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    margin-bottom: 50px;
+  }
+  
+  @media (max-width: 768px) {
+    .page {
+      margin: 20px;
+      padding: 10px;
+    }
+  
+    .content {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+  
