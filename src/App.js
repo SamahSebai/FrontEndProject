@@ -12,7 +12,7 @@ import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
-import { getUserByRole } from "./services/loginService";
+import { getUserById, getUserByRole } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
@@ -21,6 +21,7 @@ import CreateEevent from "./pages/Event/createEvent";
 import UpdateEvent from "./pages/Event/updateEvent";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
+import io from "socket.io-client";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -28,6 +29,7 @@ function App() {
   const [user, setuser] = useState({
     role: "",
   });
+  const [socket, setSocket] = useState(null);
 
   const getRole = () => {
     getUserByRole(
@@ -35,6 +37,23 @@ function App() {
       () => {}
     );
   };
+  useEffect(() => {
+    if (user.role) {
+      const newSocket = io(`http://localhost:4000`);
+      setSocket(newSocket);
+      return () => newSocket.close();
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (socket) {
+      getUserById((data) => {
+        socket.on(`notif-pfe-${data}`, (resp) => {
+          alert(resp);
+        });
+      });
+    }
+  }, [socket]);
 
   useEffect(() => {
     const AUTH_TOKEN = "token";

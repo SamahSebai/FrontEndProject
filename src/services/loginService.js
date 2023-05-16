@@ -38,3 +38,16 @@ export const getUserByRole = async (succ, fail) => {
     console.log(err);
   }
 };
+
+export const getUserById = async (succ, fail) => {
+  try {
+    const res = await axios.get(
+      "http://localhost:4000/Api/V1/profile",
+      makeHeader()
+    );
+    succ(res.data._id);
+    return res.data._id;
+  } catch (err) {
+    console.log(err);
+  }
+};
