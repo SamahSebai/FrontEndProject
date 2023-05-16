@@ -23,6 +23,7 @@ import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
 import io from "socket.io-client";
 import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
+import Notif from "./components/notifs/Notif";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -39,11 +40,9 @@ function App() {
     );
   };
   useEffect(() => {
-    if (user.role) {
-      const newSocket = io(`http://localhost:4000`);
-      setSocket(newSocket);
-      return () => newSocket.close();
-    }
+    const newSocket = io(`http://localhost:4000`);
+    setSocket(newSocket);
+    return () => newSocket.close();
   }, [user]);
 
   useEffect(() => {
@@ -118,6 +117,7 @@ const SignedRoutes = ({ user }) => {
           <Route path="/addPFE" element={<Pfe />} />
           <Route path="/addStage" element={<Stage />} />
           <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/notifications" element={<Notif />} />
           {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
         </Routes>
       )}

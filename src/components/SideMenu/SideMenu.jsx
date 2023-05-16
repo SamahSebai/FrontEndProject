@@ -78,6 +78,11 @@ const SideMenu = ({ user }) => {
       name: "Reset Password",
       icon: <MdPassword />,
     },
+    {
+      path: "/notifications",
+      name: "Notifications",
+      icon: <MdPassword />,
+    },
   ];
   const menuItemAlumni = [
     {

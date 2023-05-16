@@ -68,6 +68,19 @@ export const getpfeaffecte = (succ, fail) => {
     });
 };
 
+export const getNotifs = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/notifs`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+
 export const selectpfe = async (_id, toggle) => {
   axios
     .get(`${REACT_APP_API_HOST}/selectpfe/${_id}`, makeHeader())
