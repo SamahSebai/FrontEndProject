@@ -24,6 +24,7 @@ import Stage from "./pages/Stage/Stage";
 import io from "socket.io-client";
 import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
 import Notif from "./components/notifs/Notif";
+import Saison from "./components/saison/Saison";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -104,6 +105,7 @@ const SignedRoutes = ({ user }) => {
           <Route path="/updateEvent/:id" element={<UpdateEvent />} />
           <Route path="/deleteEvent/:id" element={<DeleteEvent />} />
           <Route path="/events" element={<EventTable />} />
+          <Route path="/ajoutersaison" element={<Saison />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
@@ -131,6 +133,7 @@ const SignedRoutes = ({ user }) => {
       {user === "Enseignant" && (
         <Routes>
           <Route path="/pfenonaffecte" element={<EnsPfe />} />
+          <Route path="/events" element={<EventTable />} />
           {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>

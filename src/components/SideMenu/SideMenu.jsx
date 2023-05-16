@@ -47,9 +47,9 @@ const SideMenu = ({ user }) => {
       icon: <MdPassword />,
     },
     {
-      path: "/addStudentsFile",
-      name: "Add students using an excel file",
-      icon: <MdPassword />,
+      path: "/ajoutersaison",
+      name: "Ajouter saison universitaire",
+      icon: <FaTh />,
     },
   ];
   const menuItemEtudiant = [
@@ -105,6 +105,11 @@ const SideMenu = ({ user }) => {
     {
       path: "/statistiquesPFE",
       name: "Statistiques sur les PFEs",
+      icon: <FaTh />,
+    },
+    {
+      path: "/events",
+      name: "Events",
       icon: <FaTh />,
     },
   ];

@@ -12,7 +12,6 @@ const Notif = () => {
       {notifs.map((notif) => (
         <div key={notif._id}>
           <p>{notif.title}</p>
-          <p>{notif.user}</p>
         </div>
       ))}
     </div>
