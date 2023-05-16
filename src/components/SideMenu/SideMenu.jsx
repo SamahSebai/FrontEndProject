@@ -91,6 +91,18 @@ const SideMenu = ({ user }) => {
       icon: <MdPassword />,
     },
   ];
+  const menuItemEns = [
+    {
+      path: "/pfenonaffecte",
+      name: "Liste des PFEs",
+      icon: <FaTh />,
+    },
+    {
+      path: "/statistiquesPFE",
+      name: "Statistiques sur les PFEs",
+      icon: <FaTh />,
+    },
+  ];
   return (
     <div>
       <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">
@@ -138,6 +150,23 @@ const SideMenu = ({ user }) => {
           ))}
         {user === "ALumni" &&
           menuItemAlumni.map((item, index) => (
+            <NavLink
+              to={item.path}
+              key={index}
+              className="link"
+              activeclassName="active"
+            >
+              <div className="icon">{item.icon}</div>
+              <div
+                style={{ display: isOpen ? "block" : "none" }}
+                className="link_text"
+              >
+                {item.name}
+              </div>
+            </NavLink>
+          ))}
+        {user === "Enseignant" &&
+          menuItemEns.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}

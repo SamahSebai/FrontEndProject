@@ -22,6 +22,7 @@ import UpdateEvent from "./pages/Event/updateEvent";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
 import io from "socket.io-client";
+import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -125,6 +126,13 @@ const SignedRoutes = ({ user }) => {
           <Route path="profile" element={<Alumnistatu />} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+        </Routes>
+      )}
+      {user === "Enseignant" && (
+        <Routes>
+          <Route path="/pfenonaffecte" element={<EnsPfe />} />
+          {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
+          <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}
     </>
