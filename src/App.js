@@ -22,6 +22,7 @@ import UpdateEvent from "./pages/Event/updateEvent";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
 import PFEList from "./components/PFEList/PFEList";
+import Stat from "./components/statpfe/stat";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -108,6 +109,12 @@ const SignedRoutes = ({ user }) => {
           <Route path="profile" element={<Alumnistatu />} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+        </Routes>
+      )}
+      {user === "Enseignant" && (
+        <Routes>
+          <Route path="/statistiquespfe" element={<Stat />} />
+          <Route path="/*" element={<Navigate to={"/statistiquespfe"} />} />
         </Routes>
       )}
     </>
