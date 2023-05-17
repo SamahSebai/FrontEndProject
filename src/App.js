@@ -6,7 +6,6 @@ import Updatecv from "./Cv/UpdateCv";
 import UpdateUser from "./Etudient/EditUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
-
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
@@ -91,7 +90,7 @@ const SignedRoutes = ({ user ,etat }) => {
       <SideMenu user={user} />
       {user === "ADMIN" && (
         <Routes>
-          <Route path="dashboard" element={<img src={image} alt="Image" style={{ margin: '10%',width:"450px" ,height:"450px" }} />} />
+          <Route path="dashboard"element={<><img src={image}alt="Image"style={{ display: "block", margin: "0 auto",width: "600px",height: "450px",}}/></>}/>
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />

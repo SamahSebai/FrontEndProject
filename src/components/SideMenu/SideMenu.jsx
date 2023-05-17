@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher ,FaHandsHelping, FaCheckSquare, FaChartLine,FaDiagnoses, FaFileMedical,FaGlasses,FaUserTie} from "react-icons/fa";
-import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
+import { MdPassword, MdEvent, MdEmojiPeople,MdLogout } from "react-icons/md";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
 
@@ -180,7 +180,7 @@ const SideMenu = ({ user }) => {
           ))}
           <div className="link" onClick={handleLogout}>
           <div className="icon">
-            <FaTh />
+            <MdLogout />
           </div>
           <div
             style={{ display: isOpen ? "block" : "none" }}
