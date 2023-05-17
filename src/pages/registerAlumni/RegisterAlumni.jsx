@@ -216,7 +216,6 @@ export default function RegisterAlumni() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-
           <button type="submit" class="btn btn-primary">
             Register
           </button>

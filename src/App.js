@@ -59,8 +59,8 @@ function App() {
       setlogged(true);
       getRole();
       getetat();
-      console.log(user);
       console.log(etat);
+      console.log(user);
     }
     setloading(false);
   }, [user]);
