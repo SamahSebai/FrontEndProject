@@ -54,8 +54,7 @@ export default function RegisterAlumni() {
           role,
           email,
           password,
-        },
-        config
+        }
       );
       res.data && window.location.replace("/");
     } catch (err) {
@@ -104,17 +103,40 @@ export default function RegisterAlumni() {
           </div>
           
 
-          <div class="form-group">
-            <label for="pays">pays:</label>
-            <input
-              type="text"
-              class="form-control"
+          <div className="form-group">
+            <label htmlFor="pays">Country:</label>
+            <select
+              className="form-control"
               id="pays"
               name="pays"
               required
               onChange={(e) => setpays(e.target.value)}
-            />
-          </div>
+            >
+    <option value="">Select a country</option>
+    <option value="Afghanistan">Afghanistan</option>
+    <option value="Australia">Australia</option>
+    <option value="Brazil">Brazil</option>
+    <option value="Canada">Canada</option>
+    <option value="China">China</option>
+    <option value="France">France</option>
+    <option value="Germany">Germany</option>
+    <option value="India">India</option>
+    <option value="Italy">Italy</option>
+    <option value="Japan">Japan</option>
+    <option value="Mexico">Mexico</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="Russia">Russia</option>
+    <option value="Tunisia">Tunisia</option>
+    <option value="Spain">Spain</option>
+    <option value="Sweden">Sweden</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="United States">United States</option>
+    <option value="South Africa">South Africa</option>
+    <option value="South Korea">South Korea</option>
+  </select>
+</div>
+
           <div class="form-group">
             <label for="société">société:</label>
             <input

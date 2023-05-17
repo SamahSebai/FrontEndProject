@@ -27,6 +27,7 @@ import Vacation from "./pages/vacation/Vacation";
 import AddBlog from "./pages/crudBlog/AddBlog";
 import ShowBlogs from "./pages/crudBlog/ShowBlogs";
 import UpdateBlog from "./pages/crudBlog/UpdateBlog";
+import image from "./image.jpg";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -90,7 +91,7 @@ const SignedRoutes = ({ user ,etat }) => {
       <SideMenu user={user} />
       {user === "ADMIN" && (
         <Routes>
-          <Route path="dashboard" element={<></>} />
+          <Route path="dashboard" element={<img src={image} alt="Image" style={{ margin: '10%',width:"450px" ,height:"450px" }} />} />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />

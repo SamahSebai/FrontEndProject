@@ -6,6 +6,14 @@ import { NavLink } from "react-router-dom";
 
 const SideMenu = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleLogout = () => {
+    // Remove the token from local storage
+    localStorage.removeItem('token');
+  
+    // Reload the page to reflect the logout state
+    window.location.reload();
+  };
+  
   const toggle = () => setIsOpen(!isOpen);
   const menuItemADMIN = [
     {
@@ -170,6 +178,17 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
+          <div className="link" onClick={handleLogout}>
+          <div className="icon">
+            <FaTh />
+          </div>
+          <div
+            style={{ display: isOpen ? "block" : "none" }}
+            className="link_text"
+          >
+            Logout
+          </div>
+        </div>
       </div>
     </div>
   );

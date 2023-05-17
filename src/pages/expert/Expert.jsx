@@ -18,6 +18,7 @@ function Expert() {
       try {
         const res = await axios.get("http://localhost:4000/Api/V1/Demande", config);
         setData(res.data);
+        console.log(res.data)
       } catch (err) {
         console.log("dataaaaaa",data)
         console.log(err);
@@ -30,8 +31,8 @@ function Expert() {
   useEffect(() => {
     const fetchDataAlumni = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/Api/V1/Alumni", config);
-        setAlumni(res.data);
+        const resA = await axios.get("http://localhost:4000/Api/V1/Alumni", config);
+        setAlumni(resA.data);
       } catch (err) {
         console.log(err);
         setError(true);
