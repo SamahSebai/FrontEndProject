@@ -174,25 +174,25 @@ export default function RegisterAlumni() {
             <label for="visibilite">
               Haw do you want to set the visibility of your account{" "}
             </label>
-            <select onChange={(e) => setvisibilite(e.target.value)}>
+            <select className="visibilite" onChange={(e) => setvisibilite(e.target.value)}>
               <option value={true}>--public--</option>
               <option value={false}>--private--</option>
             </select>
           </div>
           <div class="form-group">
             <label for="diplome">Have you received your diploma</label>
-            <select onChange={(e) => setdiplome(e.target.value)}>
+            <select className="diplome"  onChange={(e) => setdiplome(e.target.value)}>
               <option value={true}>--yes ,I have--</option>
               <option value={false}>--No ,I havent--</option>
             </select>
           </div>
           <div>
           <label for="date">Diploma date:</label>
-          <input type="date" id="date" class="form-control" name="dateDiplome" onChange={(e) => setdateDiplome(e.target.value)}/>
+          <input type="date" id="dateDiploma" class="form-control" name="dateDiplome" onChange={(e) => setdateDiplome(e.target.value)}/>
           </div>
           <div>
           <label for="date">Hire date:</label>
-          <input type="date" id="date" class="form-control" name="dateEmbouche" onChange={(e) => setdateEmbouche(e.target.value)}/>
+          <input type="date" id="dateHire" class="form-control" name="dateEmbouche" onChange={(e) => setdateEmbouche(e.target.value)}/>
           </div>
           <div class="form-group">
             <label for="email">Email:</label>

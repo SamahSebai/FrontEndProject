@@ -102,17 +102,17 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/addblog",
-      name: "Create Blog",
+      name: "Create_Blog",
       icon: <FaDiagnoses />,
     },
     {
       path: "/showblogs",
-      name: "Show Blogs",
+      name: "Show_Blogs",
       icon: <FaHandsHelping />,
     },
     {
       path: "/resetPassword",
-      name: "Reset Password",
+      name: "Reset_Password",
       icon: <MdPassword />,
     },
   ];
@@ -134,6 +134,7 @@ const SideMenu = ({ user }) => {
               key={index}
               className="link"
               activeclassName="active"
+              id={item.name}
             >
               <div className="icon">{item.icon}</div>
               <div
@@ -149,6 +150,7 @@ const SideMenu = ({ user }) => {
             <NavLink
               to={item.path}
               key={index}
+              id={item.name}
               className="link"
               activeclassName="active"
             >
@@ -168,6 +170,7 @@ const SideMenu = ({ user }) => {
               key={index}
               className="link"
               activeclassName="active"
+              id={item.name}
             >
               <div className="icon">{item.icon}</div>
               <div
@@ -178,7 +181,7 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
-          <div className="link" onClick={handleLogout}>
+          <div className="link" onClick={handleLogout} data-test="logout">
           <div className="icon">
             <MdLogout />
           </div>

@@ -79,6 +79,7 @@ useEffect(() => {
           id="current-password"
           className="passAhlem"
           value={currentPassword}
+          data-test="old_password"
           onChange={(event) => setCurrentPassword(event.target.value)}
         />
       </div>
@@ -89,6 +90,7 @@ useEffect(() => {
           id="new-password"
           className="passAhlem"
           value={password}
+          data-test="new_password"
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
@@ -99,11 +101,12 @@ useEffect(() => {
           id="confirm-new-password"
           className="passAhlem"
           value={confirmNewPassword}
+          data-test="new_confirm_password"
           onChange={(event) => setConfirmNewPassword(event.target.value)}
         />
       </div>
-      {error && <div className="error">Please make sure your Current Password correct , your passwords match and are not blank.</div>}
-      <button type="submit">Submit</button>
+      {error && <div className="error" data-test="error">Please make sure your Current Password correct , your passwords match and are not blank.</div>}
+      <button type="submit" data-test="change_pass">Submit</button>
     </form>
   );
 }

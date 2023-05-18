@@ -67,7 +67,7 @@ function ShowBlogs() {
         <tbody>
           {data.map((row) => {
             return (
-              <tr key={row.id} className="cardDemande">
+                <tr key={row.id} className="cardDemande">
                 <tr>
                   <td className="blogs">
                     <strong>Type:</strong> {row.Type}
@@ -81,11 +81,11 @@ function ShowBlogs() {
                     <strong>Description:</strong> {row.description}
                   </td>
                 </tr>
-                <tr>
+                <tr className="coloneUPDATE">
                   {row.Moderateur == decodedToken.userId && (
                     <>
                       <center>
-                        <button className="b1" onClick={() => handleUpdatBlog(row._id)}>update</button>
+                        <button className="b1" data-test="updateBlog" onClick={() => handleUpdatBlog(row._id)}>update</button>
                         <button className="b2" onClick={() => handleButtonClick(row._id)}>delete</button>
                       </center>
                     </>

@@ -52,13 +52,13 @@ function ValiderAlumni() {
   return (
   <center>
     <div style={{ flexGrow: 1 }}  className="cardAl"  id="card1">
-    <h1 className="valider">Liste des invité</h1>
       {error && <p>Une erreur est survenue lors de la récupération des données.</p>}
       {!error && (
         <div>
-          <table className="table table-striped">
+          <table id="tableV" className="table table-striped">
 
             <thead>
+              <tr><h1 style={{color:"green"}}>Liste des invité</h1></tr>
               <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -74,7 +74,7 @@ function ValiderAlumni() {
               {data.map((row) => {
                 if (row.etat==null) {
                   return (
-                    <tr key={row._id}>
+                    <tr className="ligne" key={row._id}>
                       <td>{row.firstName}</td>
                       <td>{row.lastName}</td>
                       <td>{row.email}</td>
@@ -82,13 +82,13 @@ function ValiderAlumni() {
                       <td>{row.Specialite}</td>
                       <td>{row.role}</td>
                       <td>
-                        <button type="button" className="btn btn-primary" onClick={() => handleButtonClick(row._id)}>
+                        <button type="button" className="btn btn-primary" data-test="btnValider" onClick={() => handleButtonClick(row._id)}>
                           valider
                         </button>
                         
                         </td>
                         <td>
-                        <button type="button" className="btn btn-primary" onClick={() => handleRefuseClick(row._id)}>
+                        <button type="button" className="btn btn-primary" data-test="btnRefuser" onClick={() => handleRefuseClick(row._id)}>
                           refuser
                         </button>
                   </td>
@@ -104,12 +104,12 @@ function ValiderAlumni() {
 
 
     <div style={{ flexGrow: 1 }}  id="card1" className="cardAl">
-      <h1 className="refuser">Liste des refusé</h1>
       {error && <p>Une erreur est survenue lors de la récupération des données.</p>}
       {!error && (
         <div >
           <table className="table table-striped">
             <thead>
+              <tr><h1 style={{color:"red"}} >Liste des refusé</h1></tr>
               <tr>
                 <th>Nom</th>
                 <th>Prénom</th>
