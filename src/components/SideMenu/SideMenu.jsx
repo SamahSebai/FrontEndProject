@@ -53,17 +53,17 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/Dexpert",
-      name: "expert requests",
+      name: "expert_requests",
       icon: <FaGlasses />,
     },
     {
       path: "/Dvacation",
-      name: "Vacation requests",
+      name: "Vacation_requests",
       icon: <FaUserTie />,
     },
     {
       path: "/resetPassword",
-      name: "Reset Password",
+      name: "Reset_Password",
       icon: <MdPassword />,
     },
   ];
