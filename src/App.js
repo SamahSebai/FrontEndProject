@@ -95,7 +95,7 @@ const SignedRoutes = ({ user }) => {
       <SideMenu user={user} />
       {user === "ADMIN" && (
         <Routes>
-          <Route path="dashboard" element={<></>} />
+          <Route path="/dashboard" element={<></>} />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />

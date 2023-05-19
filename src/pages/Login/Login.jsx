@@ -20,7 +20,7 @@ const Login = () => {
     event.preventDefault();
     const x = LoginFunc(email, password);
     console.log(x);
-    Navigate("/students");
+    Navigate("/dashboard");
   };
 
   return (
