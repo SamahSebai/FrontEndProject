@@ -79,6 +79,7 @@ const UnsignedRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/registeralumni" element={<RegisterAlumni />} />
       <Route path="/*" element={<Navigate to={"/login"} />} />
     </Routes>
   );

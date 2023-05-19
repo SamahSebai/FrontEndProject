@@ -24,6 +24,7 @@ const Login = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit} className="login-form">
       <div className="form-group">
         <label htmlFor="username">Email:</label>
@@ -50,7 +51,12 @@ const Login = () => {
       <button type="submit" data-test="login-button" className="btn btn-primary">
         Submit
       </button>
+      <button className="btn btn-primary" onClick={() => window.location.replace("/registerAlumni")}>
+        Register Alumni
+      </button>
     </form>
+
+     </>
   );
 };
 

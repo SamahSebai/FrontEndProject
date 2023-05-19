@@ -1,5 +1,4 @@
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import "./registerAlumni.css";
 
@@ -20,18 +19,6 @@ export default function RegisterAlumni() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const token = localStorage.getItem("token");
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
-
-  if (token) {
-    const decodedToken = jwt_decode(token);
-    const userId = decodedToken.userId;
-    console.log(userId);
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
