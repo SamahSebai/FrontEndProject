@@ -25,7 +25,7 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/events",
-      name: "Crud Events",
+      name: "Crud_Events",
       icon: <MdEvent />,
     },
     {
