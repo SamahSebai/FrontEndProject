@@ -6,23 +6,32 @@ import Updatecv from "./Cv/UpdateCv";
 import UpdateUser from "./Etudient/EditUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
-
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
-import { getUserByRole } from "./services/loginService";
+import { getUserByRole , getEtat } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
 import CreateEnseignant from "./pages/Enseignant/createEnseignant";
 import CreateEevent from "./pages/Event/createEvent";
 import UpdateEvent from "./pages/Event/updateEvent";
+import ValiderAlumni from "./pages/validerAlumni/ValiderAlumni";
+import Statistiques from "./pages/statistiques/Statistiques";
+import Demande from "./pages/demande/Demande";
+import Expert from "./pages/expert/Expert";
+import Vacation from "./pages/vacation/Vacation";
+import AddBlog from "./pages/crudBlog/AddBlog";
+import ShowBlogs from "./pages/crudBlog/ShowBlogs";
+import UpdateBlog from "./pages/crudBlog/UpdateBlog";
+import image from "./image.jpg";
 
 function App() {
   const [logged, setlogged] = useState(false);
   const [loading, setloading] = useState(true);
+  const [etat, setetat] = useState();
   const [user, setuser] = useState({
     role: "",
   });
@@ -30,6 +39,12 @@ function App() {
   const getRole = () => {
     getUserByRole(
       (data) => setuser(data),
+      () => {}
+    );
+  };
+  const getetat = () => {
+    getEtat(
+      (dataE) => setetat(dataE),
       () => {}
     );
   };
@@ -42,6 +57,8 @@ function App() {
     } else {
       setlogged(true);
       getRole();
+      getetat();
+      console.log(etat);
       console.log(user);
     }
     setloading(false);
@@ -51,7 +68,7 @@ function App() {
     <div className="d-flex">
       {!loading && (
         <BrowserRouter>
-          {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
+          {logged ? <SignedRoutes user={user} etat={etat} /> : <UnsignedRoutes />}
         </BrowserRouter>
       )}
     </div>
@@ -62,18 +79,19 @@ const UnsignedRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/registeralumni" element={<RegisterAlumni />} />
       <Route path="/*" element={<Navigate to={"/login"} />} />
     </Routes>
   );
 };
 
-const SignedRoutes = ({ user }) => {
+const SignedRoutes = ({ user ,etat }) => {
   return (
     <>
       <SideMenu user={user} />
       {user === "ADMIN" && (
         <Routes>
-          <Route path="dashboard" element={<></>} />
+          <Route path="dashboard"element={<><img src={image}alt="Image"style={{ display: "block", margin: "0 auto",width: "600px",height: "450px",}}/></>}/>
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />
@@ -84,6 +102,10 @@ const SignedRoutes = ({ user }) => {
           <Route path="/deleteEvent/:id" element={<DeleteEvent />} />
           <Route path="/events" element={<EventTable />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
+          <Route path="/valideralumni" element={<ValiderAlumni/>} />
+          <Route path="/statistiques" element={<Statistiques/>} />
+          <Route path="/Dexpert" element={<Expert/>} />
+          <Route path="/Dvacation" element={<Vacation/>} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
@@ -100,9 +122,22 @@ const SignedRoutes = ({ user }) => {
       )}
       {user === "ALumni" && (
         <Routes>
+          {//here showBlogs and updateblog are not related to etat alumni becouse he cant add blog so he cant update 
+          }
           <Route path="profile" element={<Alumnistatu />} />
-          <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/showblogs" element={<ShowBlogs/>} />
+          <Route path="/updateBlog/:id" element={<UpdateBlog/>} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+          {etat===true &&(
+            <>
+            <Route path="/UpdateUser" element={<UpdateUser />} />
+            <Route path="/UpdateCV/:id" element={<Updatecv />} />
+            <Route path="/addblog" element={<AddBlog/>} />
+            <Route path="/students" element={<CrudStudent />} />
+            <Route path="/demande" element={<Demande/>} />
+            <Route path="/resetPassword" element={<Changepass />} />
+            </>
+          )}
         </Routes>
       )}
     </>

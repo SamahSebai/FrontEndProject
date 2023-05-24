@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher } from "react-icons/fa";
-import { MdPassword, MdEvent, MdEmojiPeople } from "react-icons/md";
+import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher ,FaHandsHelping, FaCheckSquare, FaChartLine,FaDiagnoses, FaFileMedical,FaGlasses,FaUserTie} from "react-icons/fa";
+import { MdPassword, MdEvent, MdEmojiPeople,MdLogout } from "react-icons/md";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
 
 const SideMenu = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const handleLogout = () => {
+    // Remove the token from local storage
+    localStorage.removeItem('token');
+  
+    // Reload the page to reflect the logout state
+    window.location.reload();
+  };
+  
   const toggle = () => setIsOpen(!isOpen);
   const menuItemADMIN = [
     {
@@ -34,8 +42,28 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
+      path: "/valideralumni",
+      name: "Valider invité",
+      icon: <FaCheckSquare />,
+    },
+    {
+      path: "/statistiques",
+      name: "statistiques",
+      icon: <FaChartLine />,
+    },
+    {
+      path: "/Dexpert",
+      name: "expert_requests",
+      icon: <FaGlasses />,
+    },
+    {
+      path: "/Dvacation",
+      name: "Vacation_requests",
+      icon: <FaUserTie />,
+    },
+    {
       path: "/resetPassword",
-      name: "Reset Password",
+      name: "Reset_Password",
       icon: <MdPassword />,
     },
   ];
@@ -63,8 +91,28 @@ const SideMenu = ({ user }) => {
       icon: <FaTh />,
     },
     {
+      path: "/updateUser",
+      name: "updateUser",
+      icon: <FaTh />,
+    },
+    {
+      path: "/demande",
+      name: "Demandes",
+      icon: <FaFileMedical />,
+    },
+    {
+      path: "/addblog",
+      name: "Create_Blog",
+      icon: <FaDiagnoses />,
+    },
+    {
+      path: "/showblogs",
+      name: "Show_Blogs",
+      icon: <FaHandsHelping />,
+    },
+    {
       path: "/resetPassword",
-      name: "Reset Password",
+      name: "Reset_Password",
       icon: <MdPassword />,
     },
   ];
@@ -86,6 +134,7 @@ const SideMenu = ({ user }) => {
               key={index}
               className="link"
               activeclassName="active"
+              id={item.name}
             >
               <div className="icon">{item.icon}</div>
               <div
@@ -101,6 +150,7 @@ const SideMenu = ({ user }) => {
             <NavLink
               to={item.path}
               key={index}
+              id={item.name}
               className="link"
               activeclassName="active"
             >
@@ -120,6 +170,7 @@ const SideMenu = ({ user }) => {
               key={index}
               className="link"
               activeclassName="active"
+              id={item.name}
             >
               <div className="icon">{item.icon}</div>
               <div
@@ -130,6 +181,17 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
+          <div className="link" onClick={handleLogout} data-test="logout">
+          <div className="icon">
+            <MdLogout />
+          </div>
+          <div
+            style={{ display: isOpen ? "block" : "none" }}
+            className="link_text"
+          >
+            Logout
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,32 @@
+.refuser{
+    color: white;
+    background-color: red;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    margin: 50px ;
+    max-height: 200px;
+}
+.valider{
+    color: white;
+    background-color: rgb(77, 195, 234);;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    margin: 50px ;
+    max-height: 200px;
+}
+#card1{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.cardAl {
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #dddddd;
+    margin-left: 50px;
+    max-width: 2000px;
+    padding: 50px;
+  }

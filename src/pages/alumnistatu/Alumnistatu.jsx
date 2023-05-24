@@ -41,8 +41,8 @@ export default function Alumnistatu() {
           <i class="fa fa-pen fa-xs edit"></i>
           <table>
             <tbody>
-              <tr>
-              <h2 style={{ color: data && data.etat ? 'green' : 'red' }}>
+              <tr >
+              <h2 data-test="etat" style={{ color: data && data.etat ? 'green' : 'red' }}>
             {data && data.etat ? 'account activated' : 'account not yet activated'}
            </h2>
               </tr>
