@@ -26,6 +26,45 @@ export const LoginFunc = (email, password) => {
     });
 };
 
+export const getCrudEtudiant = async (succ, fail) => {
+  try {
+    const res = await axios.get(
+      "http://localhost:4000/Api/V1/profile",
+      makeHeader()
+    );
+    succ(res.data.CrudEtudiant);
+    return res.data.CrudEtudiant;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getCrudEnseignant = async (succ, fail) => {
+  try {
+    const res = await axios.get(
+      "http://localhost:4000/Api/V1/profile",
+      makeHeader()
+    );
+    succ(res.data.CrudEnseignant);
+    return res.data.CrudEnseignant;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+export const getCrudEvent = async (succ, fail) => {
+  try {
+    const res = await axios.get(
+      "http://localhost:4000/Api/V1/profile",
+      makeHeader()
+    );
+    succ(res.data.CrudEvent);
+    return res.data.CrudEvent;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 export const getUserByRole = async (succ, fail) => {
   try {
     const res = await axios.get(

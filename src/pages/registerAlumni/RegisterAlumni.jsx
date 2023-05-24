@@ -59,51 +59,51 @@ export default function RegisterAlumni() {
       <span className="registertitle">Register Alumni </span>
       <div className="">
         <form onSubmit={handleSubmit}>
-          <div class="form-group">
+          <div className="form-group">
             <label for="firstName">First Name:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="firstName"
               name="firstName"
               required
               onChange={(e) => setfirstName(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="lastName">Last Name:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="lastName"
               name="lastName"
               required
               onChange={(e) => setlastName(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="address">Address:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="address"
               name="address"
               required
               onChange={(e) => setaddress(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="specialite">Specialite:</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="specialite"
               name="specialite"
               required
               onChange={(e) => setSpecialite(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="visibilite">
               Haw do you want to set the visibility of your account{" "}
             </label>
@@ -112,36 +112,36 @@ export default function RegisterAlumni() {
               <option value={false}>--private--</option>
             </select>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="diplome">Have you received your diploma</label>
             <select onChange={(e) => setdiplome(e.target.value)}>
               <option value={true}>--yes ,I have--</option>
               <option value={false}>--No ,I havent--</option>
             </select>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="email">Email:</label>
             <input
               type="email"
-              class="form-control"
+              className="form-control"
               id="email"
               name="email"
               required
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label for="email">Password:</label>
             <input
               type="password"
-              class="form-controlp"
+              className="form-controlp"
               id="password"
               name="password"
               required
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" class="btn btn-primary">
+          <button type="submit" className="btn btn-primary">
             Register
           </button>
         </form>

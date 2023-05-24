@@ -28,6 +28,7 @@ const Login = () => {
       <div className="form-group">
         <label htmlFor="username">Email:</label>
         <input
+          data-test="email" 
           type="text"
           id="username"
           value={email}
@@ -38,6 +39,7 @@ const Login = () => {
       <div className="form-group">
         <label htmlFor="password">Password:</label>
         <input
+          data-test="password"
           type="password"
           id="password"
           value={password}
@@ -45,7 +47,7 @@ const Login = () => {
           className="form-control"
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" data-test="login-button" className="btn btn-primary">
         Submit
       </button>
     </form>

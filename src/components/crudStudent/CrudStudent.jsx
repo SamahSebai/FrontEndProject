@@ -9,12 +9,17 @@ import {
 } from "../../services/crudEtudService";
 import Student from "../Student/Student";
 import "./CrudStudent.css";
+import { Box, Button, Typography } from "@mui/material";
+import { Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
+import * as api from "../../services/crudEtudService";
 
 const CrudStudent = () => {
   const [id, setid] = useState("");
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
   const [email, setemail] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [File, setFile] = useState(null);
   const [password, setpassword] = useState("");
   const [niveau, setniveau] = useState("");
   const [classe, setclasse] = useState("");
@@ -43,6 +48,33 @@ const CrudStudent = () => {
       },
       () => {}
     );
+  };
+
+  const openUploadModal = () => {
+    setOpenModal(true);
+  };
+  
+  const closeUploadModal = () => {
+    setOpenModal(false);
+  };
+
+  const handleFileUpload = (event) => {
+  
+
+    const selectedFile = event.target.files[0];
+    setFile(selectedFile);
+ 
+  };
+
+  useEffect(() => {}, []);
+
+  const handleupload = () => {
+    const formData = new FormData(); // send to backend sous formData 
+    formData.append("csvFile", File);
+    console.log(File);
+
+    api.importExcel(formData)
+    window.location.reload();
   };
 
   const deleteUser = (id) => {
@@ -119,6 +151,38 @@ const CrudStudent = () => {
       >
         Create a Student
       </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        onClick={openUploadModal}
+      >
+        Upload file Csv
+      </button>
+      <div>
+      <Box>
+      
+      <Dialog open={openModal} onClose={closeUploadModal}>
+        <DialogTitle className="discord-dialog-title">Upload CSV</DialogTitle>
+        <DialogContent>
+          <input
+            id="csvFileInput"
+            type="file"
+            accept=".csv"
+            onChange={handleFileUpload}
+            className="discord-file-input"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeUploadModal} className="discord-button discord-cancel-button">
+            Cancel
+          </Button>
+          <Button onClick={handleupload} className="discord-button discord-upload-button">
+            Upload
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Box>
+      </div>
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>

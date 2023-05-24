@@ -4,31 +4,16 @@ import "./Table.css";
 import { useNavigate } from "react-router-dom";
 import UpdateEvent from "./updateEvent";
 
-function EventTable() {
+function AllEvents() {
   const [data, setData] = useState([]);
   const [item, setitem] = useState({
     Nom: "",
     _id: "",
     Description: "",
     Date: "",
-    Moderateur: "",
+    Moderateur: null ,
   });
-  const [toggle, settoggle] = useState(false);
 
-  const togglePopup = () => {
-    settoggle(true);
-  };
-
-  const handleCreate = () => {
-    window.location.replace(`/CreateEvent`);
-  };
-  const handleUpdatevent = (id) => {
-    window.location.replace(`/updateEvent/${id}`);
-  };
-
-  const handleDelete = (id) => {
-    window.location.replace(`/deleteEvent/${id}`);
-  };
 
   useEffect(() => {
     axios
@@ -37,6 +22,7 @@ function EventTable() {
       })
       .then((res) => {
         console.log("Getting", res.data);
+        console.log("messaaaaaaaaaaaage",data);
         setData(res.data);
       })
       .catch((err) => console.log(err));
@@ -48,19 +34,7 @@ function EventTable() {
         <td>{i.Nom}</td>
         <td>{i.Description}</td>
         <td>{i.Date}</td>
-        <td>
-          <button
-            data-test="update-button"
-            onClick={() => {
-              handleUpdatevent(i._id);
-            }}
-          >
-            edit
-          </button>
-        </td>
-        <td>
-          <button  onClick={() => handleDelete(i._id)}>delete</button>
-        </td>
+        
       </tr>
     );
   });
@@ -77,9 +51,9 @@ function EventTable() {
         </thead>
         <tbody>{arr}</tbody>
       </table>
-      <button onClick={handleCreate} data-test="create-button" >Create Event</button>
+      
     </div>
   );
 }
 
-export default EventTable;
+export default AllEvents;

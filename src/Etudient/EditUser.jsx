@@ -23,6 +23,7 @@ function UpdateUser() {
   });
   const [error, setError] = useState(false);
   const token = localStorage.getItem('token');
+  const [isPublic, setIsPublic] = useState(false);
 
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.userId;
@@ -37,6 +38,7 @@ function UpdateUser() {
       try {
         const resG = await axios.get(`http://localhost:4000/Api/V1/profile/`, config);
         setEvent(resG.data)
+        setIsPublic(resG.data.visibilite)
       } catch (err) {
         console.log(err);
       }
@@ -52,7 +54,9 @@ function UpdateUser() {
     e.preventDefault();
     try {
       setError(false);
-      const res = await axios.put(`http://localhost:4000/Api/V1/Etudiant/Update/${userId}`, event , config);
+      const updatedEvent = { ...event, visibilite: isPublic };
+
+      const res = await axios.put(`http://localhost:4000/Api/V1/Etudiant/Update/${userId}`, updatedEvent , config);
       res.data && window.location.replace("/");
     } catch (err) {
       console.log(err);
@@ -126,6 +130,15 @@ function UpdateUser() {
           onChange={handleInput}
         />
       </div>
+      <div>
+  <label>Public</label>
+  <input
+    type="checkbox"
+    name="public"
+    checked={isPublic}
+    onChange={(e) => setIsPublic(e.target.checked)}
+  />
+</div>
       <div>
         <label> Curriculum Vitae</label>
         <img src="resume.png" alt="Modifier CV" onClick={() => navigate(`/UpdateCV/${event.Cv}`, { replace: true })} />

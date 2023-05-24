@@ -1,5 +1,5 @@
 import React from "react";
-
+import {useNavigate} from 'react-router-dom';
 const Student = ({
   firstName,
   lastName,
@@ -11,15 +11,30 @@ const Student = ({
   editfnc,
   deletefnc,
   toggle,
+  justVue
 }) => {
+  const navigate = useNavigate();
+  const handleClick = (value) => {
+    console.log("value "+value)
+    navigate(`/etudiant/${value}`);
+  };
   return (
     <tr>
-      <td>{firstName}</td>
+      <td>
+      <a
+        id="deleteButton"
+        className="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
+        onClick={() => handleClick(_id)}
+        >
+          {firstName}
+          </a></td>
       <td>{lastName}</td>
       <td>{niveau}</td>
       <td>{classe}</td>
       <td>{datedeNaissance}</td>
       <td>{role}</td>
+      {!justVue&&
+      <>
       <td>
         <button
           type="button"
@@ -53,6 +68,7 @@ const Student = ({
           DELETE
         </button>
       </td>
+      </>}
     </tr>
   );
 };

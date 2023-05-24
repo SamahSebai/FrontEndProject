@@ -68,6 +68,7 @@ function CreateEevent() {
       <div>
         <label>Nom:</label>
         <input
+          data-test="event-name"
           type="text"
           name="Nom"
           value={event.Nom || ""}
@@ -77,6 +78,7 @@ function CreateEevent() {
       <div>
         <label>Description:</label>
         <input
+          data-test="event-desc"
           type="text"
           name="Description"
           value={event.Description || ""}
@@ -86,6 +88,7 @@ function CreateEevent() {
       <div>
         <label>Date:</label>
         <input
+          data-test="event-date"
           type="date"
           name="Date"
           value={makeDate2(event.Date)}
@@ -96,6 +99,7 @@ function CreateEevent() {
       <div>
         <label>Moderateur:</label>
         <select
+          data-test="Moderateur"
           name="Moderateur"
           value={event.Moderateur || ""}
           onChange={handleInput}
@@ -112,7 +116,7 @@ function CreateEevent() {
       </div>
 
       {error && <div className="error">error</div>}
-      <button type="submit">Create</button>
+      <button data-test="btn-create-event" type="submit">Create</button>
     </form>
   );
 }

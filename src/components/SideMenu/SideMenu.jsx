@@ -34,6 +34,11 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
+      path: "/adminList",
+      name: "Droit d'accés",
+      icon: <MdPassword />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
@@ -51,6 +56,16 @@ const SideMenu = ({ user }) => {
       icon: <FaTh />,
     },
     {
+      path: "/publicStudents",
+      name: "public Students",
+      icon: <MdPassword />,
+    },
+    {
+      path: "/AllEvents",
+      name: "All Events",
+      icon: <MdPassword />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
@@ -62,6 +77,25 @@ const SideMenu = ({ user }) => {
       name: "Profile",
       icon: <FaTh />,
     },
+  
+    {
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
+    },
+  ];
+  const menuItemEnseignant = [
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <FaTh />,
+    },
+    {
+      path: "/VoirCv",
+      name: "Voir CV",
+      icon: <FaUserAlt />,
+    },
+    
     {
       path: "/resetPassword",
       name: "Reset Password",
@@ -115,6 +149,23 @@ const SideMenu = ({ user }) => {
           ))}
         {user === "ALumni" &&
           menuItemAlumni.map((item, index) => (
+            <NavLink
+              to={item.path}
+              key={index}
+              className="link"
+              activeclassName="active"
+            >
+              <div className="icon">{item.icon}</div>
+              <div
+                style={{ display: isOpen ? "block" : "none" }}
+                className="link_text"
+              >
+                {item.name}
+              </div>
+            </NavLink>
+          ))}
+          {user === "Enseignant" &&
+          menuItemEnseignant.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}
