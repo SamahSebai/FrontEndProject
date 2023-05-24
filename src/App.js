@@ -11,10 +11,13 @@ import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
-import { getUserByRole, getEtat } from "./services/loginService";
-import { getUserById, getUserByRole } from "./services/loginService";
+import { getUserById, getUserByRole, getEtat } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
-import { getUserByRole , getCrudEtudiant , getCrudEnseignant , getCrudEvent } from "./services/loginService";import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
+import {
+  getCrudEtudiant,
+  getCrudEnseignant,
+  getCrudEvent,
+} from "./services/loginService";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
 import CreateEnseignant from "./pages/Enseignant/createEnseignant";
@@ -59,9 +62,11 @@ function App() {
 
   const getRole = () => {
     getUserByRole(
-      (data) =>{setuser(data)
-        console.log('hedha user',data)},
-      
+      (data) => {
+        setuser(data);
+        console.log("hedha user", data);
+      },
+
       () => {}
     );
   };
@@ -128,7 +133,18 @@ function App() {
     <div className="d-flex">
       {!loading && (
         <BrowserRouter>
-{logged ? <SignedRoutes user={user} etat={etat} CrudEtudiant={CrudEtudiant} CrudEnseignant={CrudEnseignant} CrudEvent={CrudEvent} /> : <UnsignedRoutes />}        </BrowserRouter>
+          {logged ? (
+            <SignedRoutes
+              user={user}
+              etat={etat}
+              CrudEtudiant={CrudEtudiant}
+              CrudEnseignant={CrudEnseignant}
+              CrudEvent={CrudEvent}
+            />
+          ) : (
+            <UnsignedRoutes />
+          )}{" "}
+        </BrowserRouter>
       )}
     </div>
   );
@@ -144,7 +160,13 @@ const UnsignedRoutes = () => {
   );
 };
 
-const SignedRoutes = ({ user , etat, CrudEtudiant , CrudEnseignant , CrudEvent}) => {
+const SignedRoutes = ({
+  user,
+  etat,
+  CrudEtudiant,
+  CrudEnseignant,
+  CrudEvent,
+}) => {
   return (
     <>
       <SideMenu user={user} />
@@ -169,9 +191,15 @@ const SignedRoutes = ({ user , etat, CrudEtudiant , CrudEnseignant , CrudEvent})
           />
 
           <Route path="dashboard" element={<></>} />
-          {CrudEtudiant===true &&(<Route path="/students" element={<CrudStudent />} /> )}
-          {CrudEnseignant===true &&(<Route path="/enseignants" element={<EnseignantTable />} />)}
-          {CrudEvent===true &&(<Route path="/events" element={<EventTable />} /> )}
+          {CrudEtudiant === true && (
+            <Route path="/students" element={<CrudStudent />} />
+          )}
+          {CrudEnseignant === true && (
+            <Route path="/enseignants" element={<EnseignantTable />} />
+          )}
+          {CrudEvent === true && (
+            <Route path="/events" element={<EventTable />} />
+          )}
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />
           <Route path="/CreateEvent" element={<CreateEevent />} />
           <Route path="/updateEnseignant/:id" element={<UpdateEnseignant />} />
@@ -198,7 +226,7 @@ const SignedRoutes = ({ user , etat, CrudEtudiant , CrudEnseignant , CrudEvent})
           {/* <Route path="profile" element={<></>} />*/}
           <Route path="/UpdateUser" element={<UpdateUser />} />
           <Route path="/publicStudents" element={<StudentPublic />} />
-          <Route path="/UpdateSeason/:id" element={<UpdateSeason/>} />
+          <Route path="/UpdateSeason/:id" element={<UpdateSeason />} />
           <Route path="/UpdateCV/:id" element={<Updatecv />} />
           <Route path="/addPFE" element={<Pfe />} />
           <Route path="/addStage" element={<Stage />} />

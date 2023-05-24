@@ -150,51 +150,14 @@ const SideMenu = ({ user }) => {
       name: "Profile",
       icon: <FaTh />,
     },
-  
+
     {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
     },
   ];
-  const menuItemEnseignant = [
-    {
-      path: "/dashboard",
-      name: "Dashboard",
-      icon: <FaTh />,
-    },
-    {
-      path: "/VoirCv",
-      name: "Voir CV",
-      icon: <FaUserAlt />,
-    },
-    
-    {
-      path: "/updateUser",
-      name: "updateUser",
-      icon: <FaTh />,
-    },
-    {
-      path: "/demande",
-      name: "Demandes",
-      icon: <FaFileMedical />,
-    },
-    {
-      path: "/addblog",
-      name: "Create_Blog",
-      icon: <FaDiagnoses />,
-    },
-    {
-      path: "/showblogs",
-      name: "Show_Blogs",
-      icon: <FaHandsHelping />,
-    },
-    {
-      path: "/resetPassword",
-      name: "Reset_Password",
-      icon: <MdPassword />,
-    },
-  ];
+
   const menuItemEns = [
     {
       path: "/pfenonaffecte",
