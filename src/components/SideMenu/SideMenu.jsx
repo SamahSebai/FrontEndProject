@@ -48,7 +48,7 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/events",
-      name: "Crud Events",
+      name: "Crud_Events",
       icon: <MdEvent />,
     },
     {
@@ -87,6 +87,11 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
+      path: "/adminList",
+      name: "Droit d'accés",
+      icon: <MdPassword />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset_Password",
       icon: <MdPassword />,
@@ -119,6 +124,16 @@ const SideMenu = ({ user }) => {
       icon: <AiOutlineProject />,
     },
     {
+      path: "/publicStudents",
+      name: "public Students",
+      icon: <MdPassword />,
+    },
+    {
+      path: "/AllEvents",
+      name: "All Events",
+      icon: <MdPassword />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset Password",
       icon: <MdPassword />,
@@ -135,6 +150,25 @@ const SideMenu = ({ user }) => {
       name: "Profile",
       icon: <FaTh />,
     },
+  
+    {
+      path: "/resetPassword",
+      name: "Reset Password",
+      icon: <MdPassword />,
+    },
+  ];
+  const menuItemEnseignant = [
+    {
+      path: "/dashboard",
+      name: "Dashboard",
+      icon: <FaTh />,
+    },
+    {
+      path: "/VoirCv",
+      name: "Voir CV",
+      icon: <FaUserAlt />,
+    },
+    
     {
       path: "/updateUser",
       name: "updateUser",

@@ -79,6 +79,7 @@ function UpdateEvent({ data }) {
       <div>
         <label>Nom:</label>
         <input
+          data-test="Nom"
           type="text"
           name="Nom"
           value={event.Nom || ""}
@@ -88,6 +89,7 @@ function UpdateEvent({ data }) {
       <div>
         <label>Description:</label>
         <input
+          data-test="Description"
           type="text"
           name="Description"
           value={event.Description || ""}
@@ -97,6 +99,7 @@ function UpdateEvent({ data }) {
       <div>
         <label>Date:</label>
         <input
+          data-test="Date"
           type="date"
           name="Date"
           value={makeDate2(event.Date)}
@@ -123,7 +126,7 @@ function UpdateEvent({ data }) {
       </div>
 
       {error && <div className="error">error</div>}
-      <button type="submit">Submit</button>
+      <button data-test="btn-update-event" type="submit">Submit</button>
     </form>
   );
 }
