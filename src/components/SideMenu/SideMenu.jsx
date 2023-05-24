@@ -1,6 +1,21 @@
 import React, { useState } from "react";
-import { FaTh, FaBars, FaUserAlt, FaChalkboardTeacher ,FaHandsHelping, FaCheckSquare, FaChartLine,FaDiagnoses, FaFileMedical,FaGlasses,FaUserTie} from "react-icons/fa";
-import { MdPassword, MdEvent, MdEmojiPeople,MdLogout } from "react-icons/md";
+import {
+  FaTh,
+  FaBars,
+  FaUserAlt,
+  FaChalkboardTeacher,
+  FaHandsHelping,
+  FaCheckSquare,
+  FaChartLine,
+  FaDiagnoses,
+  FaFileMedical,
+  FaGlasses,
+  FaUserTie,
+} from "react-icons/fa";
+import { MdPassword, MdEvent, MdEmojiPeople, MdLogout } from "react-icons/md";
+import { FaProjectDiagram } from "react-icons/fa";
+import { AiOutlineProject } from "react-icons/ai";
+import { GrUpdate } from "react-icons/gr";
 import "./SideMenu.css";
 import { NavLink } from "react-router-dom";
 
@@ -8,12 +23,12 @@ const SideMenu = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const handleLogout = () => {
     // Remove the token from local storage
-    localStorage.removeItem('token');
-  
+    localStorage.removeItem("token");
+
     // Reload the page to reflect the logout state
     window.location.reload();
   };
-  
+
   const toggle = () => setIsOpen(!isOpen);
   const menuItemADMIN = [
     {
@@ -66,6 +81,11 @@ const SideMenu = ({ user }) => {
       name: "Reset_Password",
       icon: <MdPassword />,
     },
+    {
+      path: "/addStudentsFile",
+      name: "Add students using an excel file",
+      icon: <MdPassword />,
+    },
   ];
   const menuItemEtudiant = [
     {
@@ -76,7 +96,17 @@ const SideMenu = ({ user }) => {
     {
       path: "/updateUser",
       name: "updateUser",
-      icon: <FaTh />,
+      icon: <GrUpdate />,
+    },
+    {
+      path: "/addPFE",
+      name: "add PFE",
+      icon: <FaProjectDiagram />,
+    },
+    {
+      path: "/addStage",
+      name: "add Stage été",
+      icon: <AiOutlineProject />,
     },
     {
       path: "/resetPassword",
@@ -181,7 +211,7 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
-          <div className="link" onClick={handleLogout} data-test="logout">
+        <div className="link" onClick={handleLogout} data-test="logout">
           <div className="icon">
             <MdLogout />
           </div>

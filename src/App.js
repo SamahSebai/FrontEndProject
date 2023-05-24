@@ -27,6 +27,8 @@ import AddBlog from "./pages/crudBlog/AddBlog";
 import ShowBlogs from "./pages/crudBlog/ShowBlogs";
 import UpdateBlog from "./pages/crudBlog/UpdateBlog";
 import image from "./image.jpg";
+import Pfe from "./pages/PFE/Pfe";
+import Stage from "./pages/Stage/Stage";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -115,7 +117,8 @@ const SignedRoutes = ({ user ,etat }) => {
           {/* <Route path="profile" element={<></>} />*/}
           <Route path="/UpdateUser" element={<UpdateUser />} />
           <Route path="/UpdateCV/:id" element={<Updatecv />} />
-          <Route path="/students" element={<CrudStudent />} />
+          <Route path="/addPFE" element={<Pfe />} />
+          <Route path="/addStage" element={<Stage />} />
           <Route path="/resetPassword" element={<Changepass />} />
           {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
         </Routes>

@@ -10,6 +10,7 @@ main{
     height: 200%;
     transition: all 0.5s;
     float: left;
+    overflow: hidden;
 }
 .top_section{
     display: flex;
