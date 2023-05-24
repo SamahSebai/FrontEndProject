@@ -38,6 +38,11 @@ const SideMenu = ({ user }) => {
       name: "Reset Password",
       icon: <MdPassword />,
     },
+    {
+      path: "/pfa-admin",
+      name: "pfa admin",
+      icon: <FaTh />,
+    },
   ];
   const menuItemEtudiant = [
     {
@@ -56,12 +61,29 @@ const SideMenu = ({ user }) => {
       name: "UpdateCV",
       icon: <FaTh />,
     },
-  
+
+    {
+      path: "/MainCv",
+      name: "affichage cv",
+      icon: <FaTh />,
+    },
   ];
   const menuItemAlumni = [
     {
       path: "/profile",
       name: "Profile",
+      icon: <FaTh />,
+    },
+    {
+      path: "/UpdateCV",
+      name: "UpdateCV",
+      icon: <FaTh />,
+    },
+  ];
+  const menuItemEnseignant = [
+    {
+      path: "/pfa",
+      name: "Pfa",
       icon: <FaTh />,
     },
   ];
@@ -110,8 +132,25 @@ const SideMenu = ({ user }) => {
               </div>
             </NavLink>
           ))}
-        {user === "Alumni" &&
+        {user === "ALumni" &&
           menuItemAlumni.map((item, index) => (
+            <NavLink
+              to={item.path}
+              key={index}
+              className="link"
+              activeclassName="active"
+            >
+              <div className="icon">{item.icon}</div>
+              <div
+                style={{ display: isOpen ? "block" : "none" }}
+                className="link_text"
+              >
+                {item.name}
+              </div>
+            </NavLink>
+          ))}
+        {user === "Enseignant" &&
+          menuItemEnseignant.map((item, index) => (
             <NavLink
               to={item.path}
               key={index}

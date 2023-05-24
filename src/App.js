@@ -1,8 +1,10 @@
-
 import Updatecv from "./Cv/UpdateCv";
+import UpdatecvAlu from "./Cv/updateCvAlu";
+import MainCv from "./Cv/MainCv";
 import UpdateUser from "./Etudient/EditUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
+import CrudPFA from "./crudPFA/crudPFA";
 
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import CrudStudent from "./components/crudStudent/CrudStudent";
@@ -10,6 +12,7 @@ import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
 import { getUserByRole } from "./services/loginService";
+import PfaAdmin from "./components/pfa-admin/pfaAdmin";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -38,22 +41,16 @@ function App() {
     setloading(false);
   }, [user]);
 
-  
-
-
-return(
-  <div className="d-flex">
+  return (
+    <div className="d-flex">
       {!loading && (
         <BrowserRouter>
           {logged ? <SignedRoutes user={user} /> : <UnsignedRoutes />}
         </BrowserRouter>
       )}
     </div>
-  
-)
-    
+  );
 }
-
 
 const UnsignedRoutes = () => {
   return (
@@ -73,7 +70,8 @@ const SignedRoutes = ({ user }) => {
           <Route path="dashboard" element={<></>} />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
-          <Route path="/events" element={<EventTable/>} />
+          <Route path="/events" element={<EventTable />} />
+          <Route path="/pfa-admin" element={<PfaAdmin />} />
           {/*<Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/resetPassword" element={<CrudStudent />} /> */}
           <Route path="/*" element={<Navigate to={"/students"} />} />
@@ -81,18 +79,25 @@ const SignedRoutes = ({ user }) => {
       )}
       {user === "Etudiant" && (
         <Routes>
-        { /* <Route path="profile" element={<></>} />*/}
-          <Route path="/UpdateUser" element={<UpdateUser/>} />
-          <Route path="/UpdateCV" element={<Updatecv  />} />
+          {/* <Route path="profile" element={<></>} />*/}
+          <Route path="/UpdateUser" element={<UpdateUser />} />
+          <Route path="/UpdateCV" element={<Updatecv />} />
+          <Route path="/MainCv" element={<MainCv />} />
           <Route path="/students" element={<CrudStudent />} />
-      { /*  <Route path="/*" element={<Navigate to={"/profile"} />} />*/}
+          {/*  <Route path="/*" element={<Navigate to={"/profile"} />} />*/}
         </Routes>
       )}
-      {user === "Alumni" && (
+      {user === "ALumni" && (
         <Routes>
           <Route path="profile" element={<></>} />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+          <Route path="/UpdateCV" element={<UpdatecvAlu />} />
+        </Routes>
+      )}
+      {user === "Enseignant" && (
+        <Routes>
+          <Route path="/pfa" element={<CrudPFA />} />
         </Routes>
       )}
     </>

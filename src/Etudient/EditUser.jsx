@@ -1,58 +1,65 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { useParams,useNavigate } from "react-router-dom";
-import jwt_decode from 'jwt-decode';
+import { useParams, useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 import axios from "axios";
-import './EditUser.css';
-
+import "./EditUser.css";
 
 function UpdateUser() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [event, setEvent] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    address: '',
-    Specialite: '',
-    classe:'',
-    diplome:'',
-    Cv:''
-
-
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    address: "",
+    Specialite: "",
+    classe: "",
+    diplome: "",
+    Cv: "",
   });
   const [error, setError] = useState(false);
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
 
   const decodedToken = jwt_decode(token);
   const userId = decodedToken.userId;
 
-  const config = useMemo(() => ({
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }), [token]);
+  const config = useMemo(
+    () => ({
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }),
+    [token]
+  );
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const resG = await axios.get(`http://localhost:4000/Api/V1/profile/`, config);
-        setEvent(resG.data)
+        const resG = await axios.get(
+          `http://localhost:4000/Api/V1/profile/`,
+          config
+        );
+        setEvent(resG.data);
       } catch (err) {
         console.log(err);
       }
     };
     fetchUser();
   }, [id, config]);
-  
+
   const handleInput = (e) => {
-    setEvent({ ...event, [e.target.name]: e.target.value })
-  }
+    setEvent({ ...event, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setError(false);
-      const res = await axios.put(`http://localhost:4000/Api/V1/Etudiant/Update/${userId}`, event , config);
+      const res = await axios.put(
+        `http://localhost:4000/Api/V1/Etudiant/Update/${userId}`,
+        event,
+        config
+      );
       res.data && window.location.replace("/");
     } catch (err) {
       console.log(err);
@@ -68,7 +75,7 @@ function UpdateUser() {
         <input
           type="text"
           name="firstName"
-          value={event.firstName || ''}
+          value={event.firstName || ""}
           onChange={handleInput}
         />
       </div>
@@ -77,7 +84,7 @@ function UpdateUser() {
         <input
           type="text"
           name="lastName"
-          value={event.lastName || ''}
+          value={event.lastName || ""}
           onChange={handleInput}
         />
       </div>
@@ -86,7 +93,7 @@ function UpdateUser() {
         <input
           type="text"
           name="email"
-          value={event.email || ''}
+          value={event.email || ""}
           onChange={handleInput}
         />
       </div>
@@ -95,7 +102,7 @@ function UpdateUser() {
         <input
           type="text"
           name="password"
-          value={event.password || ''}
+          value={event.password || ""}
           onChange={handleInput}
         />
       </div>
@@ -104,7 +111,7 @@ function UpdateUser() {
         <input
           type="text"
           name="address"
-          value={event.address || ''}
+          value={event.address || ""}
           onChange={handleInput}
         />
       </div>
@@ -113,7 +120,7 @@ function UpdateUser() {
         <input
           type="text"
           name="Specialite"
-          value={event.Specialite || ''}
+          value={event.Specialite || ""}
           onChange={handleInput}
         />
       </div>
@@ -122,20 +129,26 @@ function UpdateUser() {
         <input
           type="text"
           name=" classe"
-          value={event. classe || ''}
+          value={event.classe || ""}
           onChange={handleInput}
         />
       </div>
       <div>
         <label> Curriculum Vitae</label>
-        <img src="resume.png" alt="Modifier CV" onClick={() => navigate(`/UpdateCV/${event.Cv}`, { replace: true })} />
-   {/* <button type="Modifier" onClick={() => navigate(`/updateCv/${event.Cv}`, { replace: true })} > Modifier CV </button>*/}
+        <img
+          src="resume.png"
+          alt="Modifier CV"
+          onClick={() => navigate(`/UpdateCV`, { replace: true })}
+        />
+        {/* <button type="Modifier" onClick={() => navigate(`/updateCv/${event.Cv}`, { replace: true })} > Modifier CV </button>*/}
       </div>
       {error && <div className="error"> Erreur </div>}
       <div className="button-container">
-    <button type="button" onClick={() => window.history.back()}>Annuler</button>
-    <button type="submit">Enregister</button>
-  </div>
+        <button type="button" onClick={() => window.history.back()}>
+          Annuler
+        </button>
+        <button type="submit">Enregister</button>
+      </div>
     </form>
   );
 }
