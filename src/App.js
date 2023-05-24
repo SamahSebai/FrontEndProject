@@ -29,6 +29,7 @@ import UpdateBlog from "./pages/crudBlog/UpdateBlog";
 import image from "./image.jpg";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
+import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -141,6 +142,13 @@ const SignedRoutes = ({ user ,etat }) => {
             <Route path="/resetPassword" element={<Changepass />} />
             </>
           )}
+        </Routes>
+      )}
+      {user === "Enseignant" && (
+        <Routes>
+          <Route path="/pfenonaffecte" element={<EnsPfe />} />
+          {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
+          <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}
     </>
