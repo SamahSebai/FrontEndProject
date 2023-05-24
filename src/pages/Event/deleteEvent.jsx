@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useMemo } from "react";
 import { useParams } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 import "./Event.css";
 import { makeDate2 } from "../../functions/dates";
 

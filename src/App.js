@@ -12,6 +12,7 @@ import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
 import { getUserByRole, getEtat } from "./services/loginService";
+import { getUserById, getUserByRole } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
@@ -29,9 +30,12 @@ import UpdateBlog from "./pages/crudBlog/UpdateBlog";
 import image from "./image.jpg";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
+import io from "socket.io-client";
 import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
 import PFEList from "./components/PFEList/PFEList";
 import Stat from "./components/statpfe/stat";
+import Notif from "./components/notifs/Notif";
+import Saison from "./components/saison/Saison";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -40,6 +44,7 @@ function App() {
   const [user, setuser] = useState({
     role: "",
   });
+  const [socket, setSocket] = useState(null);
 
   const getRole = () => {
     getUserByRole(
@@ -53,6 +58,21 @@ function App() {
       () => {}
     );
   };
+  useEffect(() => {
+    const newSocket = io(`http://localhost:4000`);
+    setSocket(newSocket);
+    return () => newSocket.close();
+  }, [user]);
+
+  useEffect(() => {
+    if (socket) {
+      getUserById((data) => {
+        socket.on(`notif-pfe-${data}`, (resp) => {
+          alert(resp);
+        });
+      });
+    }
+  }, [socket]);
 
   useEffect(() => {
     const AUTH_TOKEN = "token";
@@ -126,6 +146,7 @@ const SignedRoutes = ({ user, etat }) => {
           <Route path="/updateEvent/:id" element={<UpdateEvent />} />
           <Route path="/deleteEvent/:id" element={<DeleteEvent />} />
           <Route path="/events" element={<EventTable />} />
+          <Route path="/ajoutersaison" element={<Saison />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
           <Route path="/valideralumni" element={<ValiderAlumni />} />
           <Route path="/statistiques" element={<Statistiques />} />
@@ -145,6 +166,7 @@ const SignedRoutes = ({ user, etat }) => {
           <Route path="/addPFE" element={<Pfe />} />
           <Route path="/addStage" element={<Stage />} />
           <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/notifications" element={<Notif />} />
           {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
         </Routes>
       )}
@@ -172,6 +194,8 @@ const SignedRoutes = ({ user, etat }) => {
       {user === "Enseignant" && (
         <Routes>
           <Route path="/pfenonaffecte" element={<EnsPfe />} />
+          <Route path="/events" element={<EventTable />} />
+          {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}
