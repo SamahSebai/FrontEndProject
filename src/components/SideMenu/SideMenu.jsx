@@ -77,6 +77,16 @@ const SideMenu = ({ user }) => {
       icon: <FaUserTie />,
     },
     {
+      path: "/listepfe",
+      name: "Liste des PFEs",
+      icon: <MdEmojiPeople />,
+    },
+    {
+      path: "/statistiques_pfe",
+      name: "Statistiques des pfes",
+      icon: <MdEmojiPeople />,
+    },
+    {
       path: "/resetPassword",
       name: "Reset_Password",
       icon: <MdPassword />,
@@ -150,11 +160,6 @@ const SideMenu = ({ user }) => {
     {
       path: "/pfenonaffecte",
       name: "Liste des PFEs",
-      icon: <FaTh />,
-    },
-    {
-      path: "/statistiquesPFE",
-      name: "Statistiques sur les PFEs",
       icon: <FaTh />,
     },
   ];

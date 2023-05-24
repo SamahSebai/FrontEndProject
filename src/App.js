@@ -11,7 +11,7 @@ import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
-import { getUserByRole , getEtat } from "./services/loginService";
+import { getUserByRole, getEtat } from "./services/loginService";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import DeleteEnseignant from "./pages/Enseignant/deleteEnseignant";
 import DeleteEvent from "./pages/Event/deleteEvent";
@@ -30,6 +30,8 @@ import image from "./image.jpg";
 import Pfe from "./pages/PFE/Pfe";
 import Stage from "./pages/Stage/Stage";
 import EnsPfe from "./pages/Enseignant_PFE/EnsPfe";
+import PFEList from "./components/PFEList/PFEList";
+import Stat from "./components/statpfe/stat";
 
 function App() {
   const [logged, setlogged] = useState(false);
@@ -71,7 +73,11 @@ function App() {
     <div className="d-flex">
       {!loading && (
         <BrowserRouter>
-          {logged ? <SignedRoutes user={user} etat={etat} /> : <UnsignedRoutes />}
+          {logged ? (
+            <SignedRoutes user={user} etat={etat} />
+          ) : (
+            <UnsignedRoutes />
+          )}
         </BrowserRouter>
       )}
     </div>
@@ -88,13 +94,29 @@ const UnsignedRoutes = () => {
   );
 };
 
-const SignedRoutes = ({ user ,etat }) => {
+const SignedRoutes = ({ user, etat }) => {
   return (
     <>
       <SideMenu user={user} />
       {user === "ADMIN" && (
         <Routes>
-          <Route path="dashboard"element={<><img src={image}alt="Image"style={{ display: "block", margin: "0 auto",width: "600px",height: "450px",}}/></>}/>
+          <Route
+            path="dashboard"
+            element={
+              <>
+                <img
+                  src={image}
+                  alt="Image"
+                  style={{
+                    display: "block",
+                    margin: "0 auto",
+                    width: "600px",
+                    height: "450px",
+                  }}
+                />
+              </>
+            }
+          />
           <Route path="/students" element={<CrudStudent />} />
           <Route path="/enseignants" element={<EnseignantTable />} />
           <Route path="/CreateEnseignant" element={<CreateEnseignant />} />
@@ -105,11 +127,13 @@ const SignedRoutes = ({ user ,etat }) => {
           <Route path="/deleteEvent/:id" element={<DeleteEvent />} />
           <Route path="/events" element={<EventTable />} />
           <Route path="/registeralumni" element={<RegisterAlumni />} />
-          <Route path="/valideralumni" element={<ValiderAlumni/>} />
-          <Route path="/statistiques" element={<Statistiques/>} />
-          <Route path="/Dexpert" element={<Expert/>} />
-          <Route path="/Dvacation" element={<Vacation/>} />
+          <Route path="/valideralumni" element={<ValiderAlumni />} />
+          <Route path="/statistiques" element={<Statistiques />} />
+          <Route path="/Dexpert" element={<Expert />} />
+          <Route path="/Dvacation" element={<Vacation />} />
           <Route path="/resetPassword" element={<Changepass />} />
+          <Route path="/listepfe" element={<PFEList />} />
+          <Route path="/statistiquespfe" element={<Stat />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
@@ -126,20 +150,21 @@ const SignedRoutes = ({ user ,etat }) => {
       )}
       {user === "ALumni" && (
         <Routes>
-          {//here showBlogs and updateblog are not related to etat alumni becouse he cant add blog so he cant update 
+          {
+            //here showBlogs and updateblog are not related to etat alumni becouse he cant add blog so he cant update
           }
           <Route path="profile" element={<Alumnistatu />} />
-          <Route path="/showblogs" element={<ShowBlogs/>} />
-          <Route path="/updateBlog/:id" element={<UpdateBlog/>} />
+          <Route path="/showblogs" element={<ShowBlogs />} />
+          <Route path="/updateBlog/:id" element={<UpdateBlog />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
-          {etat===true &&(
+          {etat === true && (
             <>
-            <Route path="/UpdateUser" element={<UpdateUser />} />
-            <Route path="/UpdateCV/:id" element={<Updatecv />} />
-            <Route path="/addblog" element={<AddBlog/>} />
-            <Route path="/students" element={<CrudStudent />} />
-            <Route path="/demande" element={<Demande/>} />
-            <Route path="/resetPassword" element={<Changepass />} />
+              <Route path="/UpdateUser" element={<UpdateUser />} />
+              <Route path="/UpdateCV/:id" element={<Updatecv />} />
+              <Route path="/addblog" element={<AddBlog />} />
+              <Route path="/students" element={<CrudStudent />} />
+              <Route path="/demande" element={<Demande />} />
+              <Route path="/resetPassword" element={<Changepass />} />
             </>
           )}
         </Routes>
@@ -147,7 +172,6 @@ const SignedRoutes = ({ user ,etat }) => {
       {user === "Enseignant" && (
         <Routes>
           <Route path="/pfenonaffecte" element={<EnsPfe />} />
-          {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}

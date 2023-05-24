@@ -54,10 +54,34 @@ export const getpfenonaffecte = (succ, fail) => {
       fail(error.response);
     });
 };
+export const getPFEs = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFE`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
 
 export const getpfeaffecte = (succ, fail) => {
   axios
     .get(`${REACT_APP_API_HOST}/enseignant_affecte`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+export const getStatByPays = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFEStatPays`, makeHeader())
     .then((response) => {
       console.log(response.data);
       succ(response.data);
@@ -78,5 +102,42 @@ export const selectpfe = async (_id, toggle) => {
     })
     .catch((error) => {
       console.log(error);
+    });
+};
+export const getStatBySociete = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFEStatSoc`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+
+export const getStatByEnsei = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFEStatEns`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
+    });
+};
+export const getStatByTech = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/PFEStatTech`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      succ(response.data);
+    })
+    .catch((error) => {
+      alert("erreur");
+      fail(error.response);
     });
 };
