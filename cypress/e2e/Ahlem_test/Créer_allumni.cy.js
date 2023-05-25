@@ -15,7 +15,7 @@ describe('Register Alumni', () => {
       cy.get('#pays').select('United States');
       cy.get('#société').type('ABC Company');
       cy.get('#promotion').type('2021');
-      cy.get('#specialite').type('Computer Science');
+      cy.get('#specialite').type('Computer Science'); 
       cy.get('.visibilite').select('true');
       cy.get('.diplome').select('true');
       cy.get('#dateDiploma').type('2022-01-01');
