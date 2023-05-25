@@ -249,7 +249,6 @@ function CrudPFA() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>Title</th>
             <th>Description</th>
             <th>Technologie</th>
@@ -262,7 +261,6 @@ function CrudPFA() {
           {pfa?.map((item) => {
             return (
               <tr key={item._id}>
-                <td>{item?._id}</td>
                 <td>{item?.Titre}</td>
                 <td>{item?.Description}</td>
                 <td>{item?.Technologie}</td>

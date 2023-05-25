@@ -54,11 +54,22 @@ const InitItems = {
 
 function CVLIGHT({ cv, user }) {
   return (
-    <div className="cv-container1">
-      <h1>CV</h1>
+    <div
+      id="cv-container11"
+      className="cv-container11"
+      style={{
+        marginLeft: "500px",
+        width: "642px",
+        border: "4px solid ",
+        borderColor: "#f0a500",
+      }}
+    >
+      <h1 id="cv-title">Curriculum Vitae</h1>
 
-      <div className="section1">
-        <h2 className="section-title1">information generale</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          information generale
+        </h2>
         <p>prenom: {cv.compte.firstName}</p>
         <p>Nom de famille: {cv.compte.lastName}</p>
         <p>Email: {cv.compte.email}</p>
@@ -67,31 +78,37 @@ function CVLIGHT({ cv, user }) {
         <p> Classe: {cv.compte.classe}</p>
       </div>
 
-      <div className="section1">
-        <h2 className="section-title1">Description</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Description
+        </h2>
         <p>{cv.description}</p>
       </div>
 
-      <div className="section1">
-        <h2 className="section-title1">Liens</h2>
-        <div className="contact1">
-          <div className="contact-item1">
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Liens
+        </h2>
+        <div className="contact">
+          <div className="contact-item">
             <img src="linkedin-icon.png" alt="LinkedIn" />
             <a href={cv.linkedInUrl}>{cv.linkedInUrl}</a>
           </div>
-          <div className="contact-item1">
+          <div className="contact-item">
             <img src="github-icon.png" alt="GitHub" />
             <a href={cv.githubUrl}>{cv.githubUrl}</a>
           </div>
         </div>
       </div>
 
-      <div className="section1">
-        <h2 className="section-title1">Expériences</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Expériences
+        </h2>
         <ul>
           {cv.experiences.map((experience, index) => (
             <li key={index}>
-              <h3>{experience.titre}</h3>
+              <h3 id="cv-title">{experience.titre}</h3>
               <p>Description : {experience.description}</p>
               <p>Technologies : {experience.technologies}</p>
               <p>Nom de la société : {experience.nom_societe}</p>
@@ -108,12 +125,14 @@ function CVLIGHT({ cv, user }) {
           ))}
         </ul>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">Education</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Education
+        </h2>
         <ul>
           {cv.Education.map((Education, index) => (
             <li key={index}>
-              <h3>{Education.titre_univ}</h3>
+              <h3 id="cv-title">{Education.titre_univ}</h3>
               <p>titre_diplome : {Education.titre_diplome}</p>
               <p>Montion : {Education.mention}</p>
               <p>Description : {Education.description}</p>
@@ -128,12 +147,14 @@ function CVLIGHT({ cv, user }) {
           ))}
         </ul>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">Education</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Education
+        </h2>
         <ul>
           {cv.Education.map((Education, index) => (
             <li key={index}>
-              <h3>{Education.titre_univ}</h3>
+              <h3 id="cv-title">{Education.titre_univ}</h3>
               <p>titre_diplome : {Education.titre_diplome}</p>
               <p>Montion : {Education.mention}</p>
               <p>Description : {Education.description}</p>
@@ -148,12 +169,14 @@ function CVLIGHT({ cv, user }) {
           ))}
         </ul>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">Certifications</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          Certifications
+        </h2>
         <ul>
           {cv.certifications.map((certification, index) => (
             <li key={index}>
-              <h3>{certification.titre_certif}</h3>
+              <h3 id="cv-title">{certification.titre_certif}</h3>
               <p>Source : {certification.source_certif}</p>
               <p>Description : {certification.description}</p>
               <p>Emplacement : {certification.emplacement}</p>
@@ -169,27 +192,35 @@ function CVLIGHT({ cv, user }) {
           ))}
         </ul>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">languages</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          languages
+        </h2>
         <ul>
           {cv.languages.map((languages, index) => (
             <li key={index}>
-              <h3>{languages.lang}</h3>
+              <h3 id="cv-title">{languages.lang}</h3>
               <p>level : {languages.level}</p>
             </li>
           ))}
         </ul>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">hard_skills</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          hard_skills
+        </h2>
         <p>{cv.hard_skills}</p>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">soft_skills</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          soft_skills
+        </h2>
         <p>{cv.soft_skills}</p>
       </div>
-      <div className="section1">
-        <h2 className="section-title1">hobbys</h2>
+      <div id="section11" className="section11">
+        <h2 id="cv-title" className="section-title">
+          hobbys
+        </h2>
         <p>{cv.hobbys}</p>
       </div>
     </div>

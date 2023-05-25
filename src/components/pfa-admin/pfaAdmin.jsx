@@ -100,7 +100,6 @@ function PfaAdmin() {
       <Table striped bordered>
         <thead>
           <tr>
-            <th>#</th>
             <th>Title</th>
             <th>Description</th>
             <th>Technologie</th>
@@ -114,7 +113,6 @@ function PfaAdmin() {
             pfa?.map((item) => {
               return (
                 <tr key={item._id}>
-                  <td>{item?._id}</td>
                   <td>{item?.Titre}</td>
                   <td>{item?.Description}</td>
                   <td>{item?.Technologie}</td>

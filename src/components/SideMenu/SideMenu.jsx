@@ -119,6 +119,17 @@ const SideMenu = ({ user }) => {
       icon: <GrUpdate />,
     },
     {
+      path: "/UpdateCV",
+      name: "Update CV",
+      icon: <GrUpdate />,
+    },
+
+    {
+      path: "/MainCv",
+      name: "Show CV",
+      icon: <FaTh />,
+    },
+    {
       path: "/addPFE",
       name: "add PFE",
       icon: <FaProjectDiagram />,
@@ -148,11 +159,6 @@ const SideMenu = ({ user }) => {
       name: "Notifications",
       icon: <MdPassword />,
     },
-    {
-      path: "/MainCv",
-      name: "affichage cv",
-      icon: <FaTh />,
-    },
   ];
   const menuItemAlumni = [
     {
@@ -162,9 +168,10 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/UpdateCV",
-      name: "UpdateCV",
-      icon: <FaTh />,
+      name: "Update CV",
+      icon: <GrUpdate />,
     },
+
     {
       path: "/resetPassword",
       name: "Reset Password",
@@ -183,14 +190,13 @@ const SideMenu = ({ user }) => {
       name: "Events",
       icon: <FaTh />,
     },
-  ];
-  const menuItemEnseignant = [
     {
       path: "/pfa",
       name: "Pfa",
       icon: <FaTh />,
     },
   ];
+
   return (
     <div>
       <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">

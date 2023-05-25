@@ -54,11 +54,16 @@ const InitItems = {
 
 function CVDARK({ cv, user }) {
   return (
-    <div className="cv-container">
-      <h1>CV</h1>
+    <div
+      className="cv-container"
+      style={{ marginLeft: "500px", width: "642px" }}
+    >
+      <h1 id="cv-title1">Curriculum Vitae</h1>
 
       <div className="section">
-        <h2 className="section-title">information generale</h2>
+        <h2 id="cv-title1" className="section-title">
+          information generale
+        </h2>
         <p>prenom: {cv.compte.firstName}</p>
         <p>Nom de famille: {cv.compte.lastName}</p>
         <p>Email: {cv.compte.email}</p>
@@ -68,12 +73,16 @@ function CVDARK({ cv, user }) {
       </div>
 
       <div className="section">
-        <h2 className="section-title">Description</h2>
+        <h2 id="cv-title1" className="section-title">
+          Description
+        </h2>
         <p>{cv.description}</p>
       </div>
 
       <div className="section">
-        <h2 className="section-title">Liens</h2>
+        <h2 id="cv-title1" className="section-title">
+          Liens
+        </h2>
         <div className="contact">
           <div className="contact-item">
             <img src="linkedin-icon.png" alt="LinkedIn" />
@@ -87,7 +96,9 @@ function CVDARK({ cv, user }) {
       </div>
 
       <div className="section">
-        <h2 className="section-title">Expériences</h2>
+        <h2 id="cv-title1" className="section-title">
+          Expériences
+        </h2>
         <ul>
           {cv.experiences.map((experience, index) => (
             <li key={index}>
@@ -109,7 +120,9 @@ function CVDARK({ cv, user }) {
         </ul>
       </div>
       <div className="section">
-        <h2 className="section-title">Education</h2>
+        <h2 id="cv-title1" className="section-title">
+          Education
+        </h2>
         <ul>
           {cv.Education.map((Education, index) => (
             <li key={index}>
@@ -129,7 +142,9 @@ function CVDARK({ cv, user }) {
         </ul>
       </div>
       <div className="section">
-        <h2 className="section-title">Education</h2>
+        <h2 id="cv-title1" className="section-title">
+          Education
+        </h2>
         <ul>
           {cv.Education.map((Education, index) => (
             <li key={index}>
@@ -149,7 +164,9 @@ function CVDARK({ cv, user }) {
         </ul>
       </div>
       <div className="section">
-        <h2 className="section-title">Certifications</h2>
+        <h2 id="cv-title1" className="section-title">
+          Certifications
+        </h2>
         <ul>
           {cv.certifications.map((certification, index) => (
             <li key={index}>
@@ -170,7 +187,9 @@ function CVDARK({ cv, user }) {
         </ul>
       </div>
       <div className="section">
-        <h2 className="section-title">languages</h2>
+        <h2 id="cv-title1" className="section-title">
+          languages
+        </h2>
         <ul>
           {cv.languages.map((languages, index) => (
             <li key={index}>
@@ -181,15 +200,21 @@ function CVDARK({ cv, user }) {
         </ul>
       </div>
       <div className="section">
-        <h2 className="section-title">hard_skills</h2>
+        <h2 id="cv-title1" className="section-title">
+          hard_skills
+        </h2>
         <p>{cv.hard_skills}</p>
       </div>
       <div className="section">
-        <h2 className="section-title">soft_skills</h2>
+        <h2 id="cv-title1" className="section-title">
+          soft_skills
+        </h2>
         <p>{cv.soft_skills}</p>
       </div>
       <div className="section">
-        <h2 className="section-title">hobbys</h2>
+        <h2 id="cv-title1" className="section-title">
+          hobbys
+        </h2>
         <p>{cv.hobbys}</p>
       </div>
     </div>

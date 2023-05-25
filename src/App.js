@@ -4,7 +4,9 @@ import RegisterAlumni from "./pages/registerAlumni/RegisterAlumni";
 import Updatecv from "./Cv/UpdateCv";
 import UpdatecvAlu from "./Cv/updateCvAlu";
 import MainCv from "./Cv/MainCv";
+
 import UpdateUser from "./Etudient/EditUser";
+import ShowUser from "./Etudient/ShowUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
 import CrudPFA from "./crudPFA/crudPFA";
@@ -221,7 +223,7 @@ const SignedRoutes = ({
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/listepfe" element={<PFEList />} />
           <Route path="/statistiquespfe" element={<Stat />} />
-          <Route path="/pfa" element={<PfaAdmin />} />
+          <Route path="/pfa-admin" element={<PfaAdmin />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
@@ -231,13 +233,16 @@ const SignedRoutes = ({
           <Route path="/UpdateUser" element={<UpdateUser />} />
           <Route path="/publicStudents" element={<StudentPublic />} />
           <Route path="/UpdateSeason/:id" element={<UpdateSeason />} />
-          <Route path="/UpdateCV/:id" element={<Updatecv />} />
+          {/*<Route path="/UpdateCV/:id" element={<Updatecv />} />*/}
+          <Route path="/UpdateCV" element={<Updatecv />} />
+          <Route path="/MainCv" element={<MainCv />} />
           <Route path="/addPFE" element={<Pfe />} />
           <Route path="/addStage" element={<Stage />} />
           <Route path="/AllEvents" element={<AllEvents />} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/notifications" element={<Notif />} />
-          {/* <Route path="/*" element={<Navigate to={"/profile"} />} /> */}
+          <Route path="/profile" element={<ShowUser />} />
+          <Route path="/*" element={<Navigate to={"/profile"} />} />
         </Routes>
       )}
       {user === "ALumni" && (
@@ -246,6 +251,7 @@ const SignedRoutes = ({
             //here showBlogs and updateblog are not related to etat alumni becouse he cant add blog so he cant update
           }
           <Route path="profile" element={<Alumnistatu />} />
+          <Route path="/UpdateCV" element={<UpdatecvAlu />} />
           <Route path="/showblogs" element={<ShowBlogs />} />
           <Route path="/updateBlog/:id" element={<UpdateBlog />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
@@ -265,6 +271,7 @@ const SignedRoutes = ({
         <Routes>
           <Route path="/pfenonaffecte" element={<EnsPfe />} />
           <Route path="/events" element={<EventTable />} />
+          <Route path="/pfa" element={<CrudPFA />} />
           {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
@@ -278,11 +285,11 @@ const SignedRoutes = ({
           <Route path="/UpdateCV" element={<UpdatecvAlu />} />
         </Routes>
       )}
-      {user === "Enseignant" && (
+      {/*   {user === "Enseignant" && (
         <Routes>
           <Route path="/pfa" element={<CrudPFA />} />
         </Routes>
-      )}
+      )} */}
     </>
   );
 };

@@ -1,12 +1,14 @@
 .cv-container {
-  background-color: #222;
-  color: #fff;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  background-color: #222 !important;
+  color: #fff !important;
+  padding: 71px !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 500 !important;
+  margin-left: 20 !important;
 }
 
 /* Le reste du code CSS reste inchangé */
@@ -28,7 +30,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #fff;
+  color: #fff !important;
 }
 
 .contact-item img {
@@ -44,9 +46,15 @@ li {
   margin-bottom: 10px;
 }
 
-h1,
+/*h1,
 h2,
 h3 {
-  margin: 0;
-  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff !important;
+}*/
+#cv-title1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #fff !important;
 }

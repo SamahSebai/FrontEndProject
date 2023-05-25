@@ -132,7 +132,7 @@ function UpdateUser() {
         <label> Classe</label>
         <input
           type="text"
-          name=" classe"
+          name="classe"
           value={event.classe || ""}
           onChange={handleInput}
         />
