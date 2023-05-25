@@ -167,6 +167,26 @@ const SideMenu = ({ user }) => {
       icon: <FaTh />,
     },
     {
+      path: "/updateUser",
+      name: "updateUser",
+      icon: <FaTh />,
+    },
+    {
+      path: "/demande",
+      name: "Demandes",
+      icon: <FaFileMedical />,
+    },
+    {
+      path: "/addblog",
+      name: "Create_Blog",
+      icon: <FaDiagnoses />,
+    },
+    {
+      path: "/showblogs",
+      name: "Show_Blogs",
+      icon: <FaHandsHelping />,
+    },
+    {
       path: "/UpdateCV",
       name: "Update CV",
       icon: <GrUpdate />,
@@ -174,7 +194,7 @@ const SideMenu = ({ user }) => {
 
     {
       path: "/resetPassword",
-      name: "Reset Password",
+      name: "Reset_Password",
       icon: <MdPassword />,
     },
   ];
