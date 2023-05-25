@@ -1,13 +1,12 @@
 .container1 {
-  
- 
-  max-width: 721px;
+  max-width: 100%;
+  min-width: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 85px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
 }
 
 .formtitle1 {
@@ -18,7 +17,7 @@
   margin: 0 auto 67px;
   text-align: center;
   color: #f0a500;
-  }
+}
 
 label {
   display: block;
@@ -29,7 +28,9 @@ label {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-input[type="text"] {
+input,
+textarea,
+select {
   width: 100%;
   padding: 10px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -37,7 +38,6 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-bottom: 20px;
-
 }
 
 .error {
@@ -109,7 +109,6 @@ button:hover {
   margin-top: 10px;
 }
 
-
 /* Set the height and width of the image */
 img {
   height: 150px;
@@ -117,7 +116,8 @@ img {
 }
 
 /* Remove the default border and outline for the image */
-img:focus, img:active {
+img:focus,
+img:active {
   border: none;
   outline: none;
 }

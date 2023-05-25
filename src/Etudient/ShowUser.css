@@ -1,5 +1,4 @@
 .container1 {
-  background-color: #fff !important;
   max-width: 721px;
   margin: 0 auto;
   padding: 85px;
@@ -23,7 +22,7 @@ label {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #f0a500 !important;
+  color: #f0a500;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -44,22 +43,22 @@ input[type="text"] {
 }
 
 /*button[type="submit"] {
-  display: block;
-  width: 50px;
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button[type="submit"]:hover {
-  background-color: #0069d9;
-}*/
+      display: block;
+      width: 50px;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #0069d9;
+    }*/
 
 button[type="Modifier"] {
   display: flex;

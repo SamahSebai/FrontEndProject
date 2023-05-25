@@ -101,6 +101,11 @@ const SideMenu = ({ user }) => {
       name: "Ajouter saison universitaire",
       icon: <FaTh />,
     },
+    {
+      path: "/pfa-admin",
+      name: "pfa admin",
+      icon: <FaTh />,
+    },
   ];
   const menuItemEtudiant = [
     {
@@ -112,6 +117,17 @@ const SideMenu = ({ user }) => {
       path: "/updateUser",
       name: "updateUser",
       icon: <GrUpdate />,
+    },
+    {
+      path: "/UpdateCV",
+      name: "Update CV",
+      icon: <GrUpdate />,
+    },
+
+    {
+      path: "/MainCv",
+      name: "Show CV",
+      icon: <FaTh />,
     },
     {
       path: "/addPFE",
@@ -171,6 +187,12 @@ const SideMenu = ({ user }) => {
       icon: <FaHandsHelping />,
     },
     {
+      path: "/UpdateCV",
+      name: "Update CV",
+      icon: <GrUpdate />,
+    },
+
+    {
       path: "/resetPassword",
       name: "Reset_Password",
       icon: <MdPassword />,
@@ -188,7 +210,13 @@ const SideMenu = ({ user }) => {
       name: "Events",
       icon: <FaTh />,
     },
+    {
+      path: "/pfa",
+      name: "Pfa",
+      icon: <FaTh />,
+    },
   ];
+
   return (
     <div>
       <div style={{ width: isOpen ? "250px" : "50px" }} className="sidebar">

@@ -54,7 +54,7 @@ const InitItems = {
   hobbys: "",
 };
 
-function Updatecv() {
+function UpdatecvAlu() {
   const navigate = useNavigate();
   const [cv, setCV] = useState({ ...init_cv });
 
@@ -337,108 +337,67 @@ function Updatecv() {
 
       <h2>Education</h2>
       {
-        <button
-          onClick={() => {
-            handleAddItem(Education, InitItems.Education, set_Education);
+        <p
+          style={{
+            fontSize: "1.6rem",
+            fontWeight: "bold",
+            marginBottom: "5px",
+            color: "red",
+            fontFamily:
+              "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif",
           }}
         >
-          Add new Education
-        </button>
+          you can't add education
+        </p>
       }
 
       {Education?.map((element, index) => {
         return (
           <div className="row w-100">
             <h3 className="col-8">Education N°{index + 1}</h3>
-            <button
-              className="col-2"
-              onClick={() => {
-                handleDeleteItem(Education, set_Education, index);
-              }}
-            >
-              Delete
-            </button>
+            {
+              <p
+                style={{
+                  fontSize: "1.6rem",
+                  fontWeight: "bold",
+                  marginBottom: "5px",
+                  color: "red",
+                  fontFamily:
+                    "Open Sans, Helvetica Neue, Helvetica, Arial, sans-serif",
+                }}
+                className="col-2"
+              >
+                you can't delete education
+              </p>
+            }
             <div className="col-6">
               <label>titre_univ</label>
-              <input
-                rows={3}
-                type="text"
-                name="titre_univ"
-                value={element.titre_univ}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              />
+              <p>{element.titre_univ}</p>
             </div>
 
             <div className="col-6">
               <label>titre_diplome</label>
-              <input
-                rows={3}
-                type="text"
-                name="titre_diplome"
-                value={element.titre_diplome}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              />
+              <p>{element.titre_diplome}</p>
             </div>
 
             <div className="col-12">
               <label>description</label>
-              <textarea
-                rows={3}
-                type="text"
-                name="description"
-                value={element?.description}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              />
+              <p>{element.description}</p>
             </div>
 
             <div className="col-4">
               <label>mention</label>
-              <select
-                rows={3}
-                type="text"
-                name="mention"
-                value={element.mention}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              >
-                <option value="Très bien">Très bien</option>
-                <option value="Bien">Bien</option>
-                <option value="Assez bien">Assez bien</option>
-                <option value="Passable">Passable</option>
-              </select>
+              <p>{element.mention}</p>
             </div>
 
             <div className="col-4">
               <label>dateDebut</label>
-              <input
-                rows={3}
-                type="date"
-                name="dateDebut"
-                value={makeDate2(element.dateDebut)}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              />
+              <p>{makeDate2(element.dateDebut)}</p>
             </div>
 
             <div className="col-4">
               <label>dateFin</label>
-              <input
-                rows={3}
-                type="date"
-                name="dateFin"
-                value={makeDate2(element.dateFin)}
-                onChange={(e) => {
-                  handle_change_complex(e, index, Education, set_Education);
-                }}
-              />
+              <p>{makeDate2(element.dateFin)}</p>
             </div>
           </div>
         );
@@ -749,4 +708,4 @@ function Updatecv() {
   );
 }
 
-export default Updatecv;
+export default UpdatecvAlu;
