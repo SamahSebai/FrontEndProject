@@ -54,7 +54,7 @@ const InitItems = {
   hobbys: "",
 };
 
-function Updatecv() {
+function UpdatecvAlu() {
   const navigate = useNavigate();
   const [cv, setCV] = useState({ ...init_cv });
 
@@ -336,28 +336,13 @@ function Updatecv() {
       })}
 
       <h2>Education</h2>
-      {
-        <button
-          onClick={() => {
-            handleAddItem(Education, InitItems.Education, set_Education);
-          }}
-        >
-          Add new Education
-        </button>
-      }
+      {<p>you can't add education</p>}
 
       {Education?.map((element, index) => {
         return (
           <div className="row w-100">
             <h3 className="col-8">Education N°{index + 1}</h3>
-            <button
-              className="col-2"
-              onClick={() => {
-                handleDeleteItem(Education, set_Education, index);
-              }}
-            >
-              Delete
-            </button>
+            {<p className="col-2">you can't delete education</p>}
             <div className="col-6">
               <label>titre_univ</label>
               <input
@@ -749,4 +734,4 @@ function Updatecv() {
   );
 }
 
-export default Updatecv;
+export default UpdatecvAlu;

@@ -1,0 +1,52 @@
+.cv-container {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Le reste du code CSS reste inchangé */
+.section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.contact {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #fff;
+}
+
+.contact-item img {
+  height: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: #fff;
+}

@@ -101,6 +101,11 @@ const SideMenu = ({ user }) => {
       name: "Ajouter saison universitaire",
       icon: <FaTh />,
     },
+    {
+      path: "/pfa-admin",
+      name: "pfa admin",
+      icon: <FaTh />,
+    },
   ];
   const menuItemEtudiant = [
     {
@@ -143,6 +148,11 @@ const SideMenu = ({ user }) => {
       name: "Notifications",
       icon: <MdPassword />,
     },
+    {
+      path: "/MainCv",
+      name: "affichage cv",
+      icon: <FaTh />,
+    },
   ];
   const menuItemAlumni = [
     {
@@ -150,7 +160,11 @@ const SideMenu = ({ user }) => {
       name: "Profile",
       icon: <FaTh />,
     },
-
+    {
+      path: "/UpdateCV",
+      name: "UpdateCV",
+      icon: <FaTh />,
+    },
     {
       path: "/resetPassword",
       name: "Reset Password",
@@ -167,6 +181,13 @@ const SideMenu = ({ user }) => {
     {
       path: "/events",
       name: "Events",
+      icon: <FaTh />,
+    },
+  ];
+  const menuItemEnseignant = [
+    {
+      path: "/pfa",
+      name: "Pfa",
       icon: <FaTh />,
     },
   ];

@@ -1,17 +1,20 @@
 import Changepass from "./pages/changePass/Changepass";
 import Alumnistatu from "./pages/alumnistatu/Alumnistatu";
 import RegisterAlumni from "./pages/registerAlumni/RegisterAlumni";
-
 import Updatecv from "./Cv/UpdateCv";
+import UpdatecvAlu from "./Cv/updateCvAlu";
+import MainCv from "./Cv/MainCv";
 import UpdateUser from "./Etudient/EditUser";
 import EventTable from "./pages/Event/EventTable";
 import EnseignantTable from "./pages/Enseignant/EnseignantTable";
+import CrudPFA from "./crudPFA/crudPFA";
 import { Route, Routes, BrowserRouter, Navigate } from "react-router-dom";
 import CrudStudent from "./components/crudStudent/CrudStudent";
 import Login from "./pages/Login/Login";
 import SideMenu from "./components/SideMenu/SideMenu";
 import { useEffect, useState } from "react";
 import { getUserById, getUserByRole, getEtat } from "./services/loginService";
+import PfaAdmin from "./components/pfa-admin/pfaAdmin";
 import UpdateEnseignant from "./pages/Enseignant/updateEnseignant";
 import {
   getCrudEtudiant,
@@ -218,6 +221,7 @@ const SignedRoutes = ({
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/listepfe" element={<PFEList />} />
           <Route path="/statistiquespfe" element={<Stat />} />
+          <Route path="/pfa" element={<PfaAdmin />} />
           <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
@@ -265,12 +269,18 @@ const SignedRoutes = ({
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}
-      {user === "Enseignant" && (
+      {user === "ALumni" && (
         <Routes>
           <Route path="profile" element={<Alumnistatu />} />
           <Route path="/VoirCv" element={<VoirCv />} />
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
+          <Route path="/UpdateCV" element={<UpdatecvAlu />} />
+        </Routes>
+      )}
+      {user === "Enseignant" && (
+        <Routes>
+          <Route path="/pfa" element={<CrudPFA />} />
         </Routes>
       )}
     </>
