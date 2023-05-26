@@ -1,8 +1,8 @@
 describe("Add Blog Page", () => {
 
     it("creates a new blog", () => {
-     cy.loginAsAlumni("tes1@gmail.com","12345678");
-     cy.get('a#Create_Blog.link').click();
+      cy.loginAsAlumni("AhlemTestAlumni@gmail.com", "123456");
+      cy.get('a#Create_Blog.link').click();
      cy.location("pathname").should("eq", "/addblog");
       // Fill in the form inputs
       cy.get('select[name="Type"]').select("Conseil");
@@ -15,8 +15,8 @@ describe("Add Blog Page", () => {
       cy.contains("This is a new blog post!");
     });
     it("update a blog", () => {
-        cy.loginAsAlumni("tes1@gmail.com","12345678");
-        cy.get('a#Show_Blogs.link').click();
+      cy.loginAsAlumni("AhlemTestAlumni@gmail.com", "123456");
+      cy.get('a#Show_Blogs.link').click();
         cy.location("pathname").should("eq", "/showblogs");
         cy.get(".cardDemande").last().within(() => {
             cy.getByData('updateBlog').click();
@@ -35,8 +35,8 @@ describe("Add Blog Page", () => {
             cy.contains("This is a new Updated blog post!");
     });
      it("delete the last blog in the list", () => {
-            cy.loginAsAlumni("tes1@gmail.com", "12345678");
-            cy.get('a#Show_Blogs.link').click();
+      cy.loginAsAlumni("AhlemTestAlumni@gmail.com", "123456");
+      cy.get('a#Show_Blogs.link').click();
             cy.location("pathname").should("eq", "/showblogs");
             cy.get(".cardDemande").its("length").then((oldLength) => {
               cy.get(".cardDemande").last().within(() => {
