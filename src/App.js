@@ -242,6 +242,7 @@ const SignedRoutes = ({
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/notifications" element={<Notif />} />
           <Route path="/profile" element={<ShowUser />} />
+          <Route path="/pfa" element={<CrudPFA showOnly />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
         </Routes>
       )}
@@ -276,7 +277,7 @@ const SignedRoutes = ({
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
         </Routes>
       )}
-      {user === "ALumni" && (
+      {/*{user === "ALumni" && (
         <Routes>
           <Route path="profile" element={<Alumnistatu />} />
           <Route path="/VoirCv" element={<VoirCv />} />
@@ -284,7 +285,7 @@ const SignedRoutes = ({
           <Route path="/*" element={<Navigate to={"/profile"} />} />
           <Route path="/UpdateCV" element={<UpdatecvAlu />} />
         </Routes>
-      )}
+      )}*/}
       {/*   {user === "Enseignant" && (
         <Routes>
           <Route path="/pfa" element={<CrudPFA />} />

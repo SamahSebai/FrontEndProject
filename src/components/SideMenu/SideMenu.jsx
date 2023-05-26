@@ -159,6 +159,11 @@ const SideMenu = ({ user }) => {
       name: "Notifications",
       icon: <MdPassword />,
     },
+    {
+      path: "/pfa",
+      name: "Pfa",
+      icon: <FaTh />,
+    },
   ];
   const menuItemAlumni = [
     {

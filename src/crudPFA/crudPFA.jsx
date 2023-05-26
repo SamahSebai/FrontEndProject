@@ -7,12 +7,15 @@ import {
   addPFA,
   updatePFA,
   getEnseignant,
+  AffectStudent,
+  getPFAByStudent,
 } from "../services/crudPFAService";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
+import jwt_decode from "jwt-decode";
 
-function CrudPFA() {
+function CrudPFA({ showOnly }) {
   const [pfa, setPfa] = useState(null);
   const [enseignant, setEnseignant] = useState(null);
   const [showModal, setShowModal] = useState(false);
@@ -34,6 +37,13 @@ function CrudPFA() {
       },
       () => {}
     );
+    if (showOnly)
+      getPFAByStudent(
+        (data) => {
+          setPfa(data);
+        },
+        () => {}
+      );
   };
   const getEnseignantList = () => {
     getEnseignant(
@@ -67,18 +77,23 @@ function CrudPFA() {
     getPfa();
     setSelectedPfa(null);
   };
+  const token = localStorage.getItem("token");
+  const decodedToken = jwt_decode(token);
+  const userId = decodedToken.userId;
   return (
     <div style={{ flexGrow: 1 }} className="p-2">
       <h1>Liste des PFA</h1>
-      <button
-        type="button"
-        class="btn btn-primary"
-        onClick={() => {
-          setShowModal(true);
-        }}
-      >
-        Create PFA
-      </button>
+      {!showOnly && (
+        <button
+          type="button"
+          class="btn btn-primary"
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          Create PFA
+        </button>
+      )}
       {showModal && (
         <div className="modal show" style={{ display: "block" }}>
           <Modal.Dialog>
@@ -266,24 +281,49 @@ function CrudPFA() {
                 <td>{item?.Technologie}</td>
                 <td>{item?.studentNumber}</td>
                 <td>{item?.Disponibilite ? "disponible" : "non disponible"}</td>
-                <td>
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      setSelectedPfa(item);
-                    }}
-                  >
-                    Edit
-                  </Button>{" "}
-                  <Button
-                    onClick={() => {
-                      deletePfa(item?._id);
-                    }}
-                    variant="secondary"
-                  >
-                    Delete
-                  </Button>{" "}
-                </td>
+                {!showOnly && (
+                  <td>
+                    <Button
+                      variant="primary"
+                      onClick={() => {
+                        setSelectedPfa(item);
+                      }}
+                    >
+                      Edit
+                    </Button>{" "}
+                    <Button
+                      onClick={() => {
+                        deletePfa(item?._id);
+                      }}
+                      variant="secondary"
+                    >
+                      Delete
+                    </Button>{" "}
+                  </td>
+                )}
+                {showOnly && (
+                  <td>
+                    {item.students.find((student) => student === userId) ? (
+                      "deja choisir"
+                    ) : (
+                      <>
+                        {item.Disponibilite &&
+                          !pfa.find((p) =>
+                            p.students.find((student) => student === userId)
+                          ) && (
+                            <Button
+                              variant="primary"
+                              onClick={() => {
+                                AffectStudent(userId, item?._id);
+                              }}
+                            >
+                              Choisir
+                            </Button>
+                          )}
+                      </>
+                    )}
+                  </td>
+                )}
               </tr>
             );
           })}

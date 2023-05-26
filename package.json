@@ -54,6 +54,6 @@
   },
   "proxy": "http://localhost:4000/Api/V1/",
   "devDependencies": {
-    "cypress": "^12.12.0"
+    "cypress": "^12.13.0"
   }
 }
