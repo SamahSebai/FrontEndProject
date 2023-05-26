@@ -6,7 +6,7 @@ describe('CrudEvenement', () => {
         cy.get('input[data-test="password"]').type('1234567');
         cy.get('button[data-test="login-button"]').click(); // Assuming the button has a data-test attribute
         cy.url().should("eq", "http://localhost:3000/dashboard"); // Adjust the URL to the redirected page after login
-        
+        n
         cy.visit('http://localhost:3000/events')
         cy.get('button[data-test="create-button"]').click(); // Assuming the button has a data-test attribute
         cy.url().should("eq", "http://localhost:3000/CreateEvent"); // Assumant que votre composant EventTable est rendu à l'URL '/Event'
