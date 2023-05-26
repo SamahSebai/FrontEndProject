@@ -7,7 +7,7 @@ describe('Register Alumni', () => {
     });
   
     it('should register an alumni successfully', () => {
-      cy.intercept('POST', 'http://localhost:4000/Api/V1/register').as('registerRequest');
+      cy.intercept('POST', 'http://localhost:4000/Api/V1/registerAlumni').as('registerRequest');
   
       cy.get('#firstName').type('John');
       cy.get('#lastName').type('Doe');
