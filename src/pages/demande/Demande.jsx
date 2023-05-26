@@ -53,7 +53,7 @@ export default function Demande() {
       <span className="Demandetitle">
       </span>
       <div className="">
-        <form onSubmit={handleSubmit}>
+        <form className="container1" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="type">Choose the type of your request:</label>
             <select
