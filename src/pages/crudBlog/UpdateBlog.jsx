@@ -72,7 +72,7 @@ function UpdateBlog({ data }) {
           conseils, offres, opportunités, offres d'emploi
         </h1>
       </center>
-      <form onSubmit={handleSubmit}>
+      <form className="container1" onSubmit={handleSubmit}>
         <div>
           <label>Type:</label>
           <select name="Type" value={Blog.Type} onChange={handleInput}>
