@@ -25,40 +25,44 @@ const Login = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit} className="login-form">
-      <div className="form-group">
-        <label htmlFor="username">Email:</label>
-        <input
-          data-test="email" 
-          type="text"
-          id="username"
-          value={email}
-          onChange={handleUsernameChange}
-          className="form-control"
-          data-test="email"
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="password">Password:</label>
-        <input
-          data-test="password"
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          className="form-control"
-          data-test="password"
-        />
-      </div>
-      <button type="submit" data-test="login-button" className="btn btn-primary">
-        Submit
-      </button>
-      <button className="btn btn-primary" onClick={() => window.location.replace("/registerAlumni")}>
-        Register Alumni
-      </button>
-    </form>
-
-     </>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
+          <label htmlFor="username">Email:</label>
+          <input
+            data-test="email"
+            type="text"
+            id="username"
+            value={email}
+            onChange={handleUsernameChange}
+            className="form-control"
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input
+            data-test="password"
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            className="form-control"
+          />
+        </div>
+        <button
+          type="submit"
+          data-test="login-button"
+          className="btn btn-primary"
+        >
+          Submit
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => window.location.replace("/registerAlumni")}
+        >
+          Register Alumni
+        </button>
+      </form>
+    </>
   );
 };
 

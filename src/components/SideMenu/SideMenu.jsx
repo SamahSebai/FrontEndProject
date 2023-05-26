@@ -24,7 +24,7 @@ const SideMenu = ({ user }) => {
   const handleLogout = () => {
     // Remove the token from local storage
     localStorage.removeItem("token");
-
+    localStorage.removeItem("_id");
     // Reload the page to reflect the logout state
     window.location.reload();
   };
@@ -208,6 +208,11 @@ const SideMenu = ({ user }) => {
     {
       path: "/events",
       name: "Events",
+      icon: <FaTh />,
+    },
+    {
+      path: "/VoirCV",
+      name: "Voir_CV",
       icon: <FaTh />,
     },
     {

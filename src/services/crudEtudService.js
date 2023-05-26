@@ -70,40 +70,48 @@ export const getEtudiantsPublic = (succ, fail) => {
       fail(error.response);
     });
 };
-export const getPFAbyStudentId = async (_id)  => {
+export const getPFAbyStudentId = async (_id) => {
   try {
-    const response = await axios.get(`${REACT_APP_API_HOST}/PFA/student/${_id}`, makeHeader());
+    const response = await axios.get(
+      `${REACT_APP_API_HOST}/PFA/student/${_id}`,
+      makeHeader()
+    );
     return response.data;
   } catch (error) {
-    console.log(error);
-    throw error;
+    console.log("erreur");
   }
 };
-export const getStageEtebyStudentId = async (_id)  => {
+export const getStageEtebyStudentId = async (_id) => {
   try {
-    const response = await axios.get(`${REACT_APP_API_HOST}/StageEte/student/${_id}`, makeHeader());
+    const response = await axios.get(
+      `${REACT_APP_API_HOST}/StageEte/student/${_id}`,
+      makeHeader()
+    );
     return response.data;
   } catch (error) {
-    console.log(error);
-    throw error;
+    console.log("erreur");
   }
 };
-export const getEtudiantById = async (_id)  => {
+export const getEtudiantById = async (_id) => {
   try {
-    const response = await axios.get(`${REACT_APP_API_HOST}/Etudiant/${_id}`, makeHeader());
+    const response = await axios.get(
+      `${REACT_APP_API_HOST}/Etudiant/${_id}`,
+      makeHeader()
+    );
     return response.data;
   } catch (error) {
-    console.log(error);
-    throw error; 
+    console.log("erreur");
   }
 };
-export const getCVbyStudentId = async (_id)  => {
+export const getCVbyStudentId = async (_id) => {
   try {
-    const response = await axios.get(`${REACT_APP_API_HOST}/CvByStudent/${_id}`, makeHeader());
+    const response = await axios.get(
+      `${REACT_APP_API_HOST}/CvByStudent/${_id}`,
+      makeHeader()
+    );
     return response.data;
   } catch (error) {
     console.log(error);
-    throw error;
   }
 };
 
@@ -120,12 +128,20 @@ export const getAlumnis = (succ, fail) => {
     });
 };
 
-export const academicProgress = async (_id,levelDiplome) => {
-  await axios.put(process.env.REACT_APP_API_HOST + `/academicProgress/${_id}` , levelDiplome, makeHeader());
+export const academicProgress = async (_id, levelDiplome) => {
+  await axios.put(
+    process.env.REACT_APP_API_HOST + `/academicProgress/${_id}`,
+    levelDiplome,
+    makeHeader()
+  );
 };
 
 export const updateSeason = async (profil) => {
-  await axios.put(process.env.REACT_APP_API_HOST + "/updateSeason" ,profil,  makeHeader());
+  await axios.put(
+    process.env.REACT_APP_API_HOST + "/updateSeason",
+    profil,
+    makeHeader()
+  );
 };
 
 export const deleteEtudiant = (_id, getStudents) => {

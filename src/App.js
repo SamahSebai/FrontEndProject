@@ -272,17 +272,9 @@ const SignedRoutes = ({
           <Route path="/pfenonaffecte" element={<EnsPfe />} />
           <Route path="/events" element={<EventTable />} />
           <Route path="/pfa" element={<CrudPFA />} />
+          <Route path="/VoirCv" element={<VoirCv />} />
           {/* <Route path="/statistiquesPFE" element={<EnsPfe />} /> */}
           <Route path="/*" element={<Navigate to={"/pfenonaffecte"} />} />
-        </Routes>
-      )}
-      {user === "ALumni" && (
-        <Routes>
-          <Route path="profile" element={<Alumnistatu />} />
-          <Route path="/VoirCv" element={<VoirCv />} />
-          <Route path="/resetPassword" element={<Changepass />} />
-          <Route path="/*" element={<Navigate to={"/profile"} />} />
-          <Route path="/UpdateCV" element={<UpdatecvAlu />} />
         </Routes>
       )}
       {/*   {user === "Enseignant" && (

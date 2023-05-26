@@ -13,19 +13,20 @@ const makeHeader = () => {
 };
 
 export const LoginFunc = (email, password) => {
-  console.log("i am here 1")
+  console.log("i am here 1");
   axios
     .post(`${REACT_APP_API_HOST}/login`, { email, password })
     .then((response) => {
-      console.log("i am here 2")
+      console.log("i am here 2");
+      console.log("karezt");
       console.log("Login successful!", response.data);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("_id", response.data.user._id);
+      localStorage.setItem("_id", response.data.id);
       window.location.reload();
       return response.data;
     })
     .catch((error) => {
-      console.log("i am here 3")
+      console.log("i am here 3");
       console.error("Error logging in:", error);
     });
 };
