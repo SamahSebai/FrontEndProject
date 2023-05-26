@@ -53,8 +53,8 @@ export default function RegisterAlumni() {
   return (
     <div className="register">
       <span className="registertitle">Register Alumni </span>
-      <div className="">
-        <form onSubmit={handleSubmit}>
+      <div>
+        <form className="container1"  onSubmit={handleSubmit}>
           <div className="form-group">
             <label for="firstName">First Name:</label>
             <input
