@@ -242,6 +242,7 @@ const SignedRoutes = ({
           <Route path="/resetPassword" element={<Changepass />} />
           <Route path="/notifications" element={<Notif />} />
           <Route path="/profile" element={<ShowUser />} />
+          <Route path="/pfa" element={<CrudPFA showOnly />} />
           <Route path="/*" element={<Navigate to={"/profile"} />} />
         </Routes>
       )}

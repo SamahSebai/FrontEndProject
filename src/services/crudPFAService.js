@@ -44,6 +44,16 @@ export const getPFAByEnseignant = (succ, fail) => {
       fail(error.response);
     });
 };
+export const getPFAByStudent = (succ, fail) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/getStudentsPFA`, makeHeader())
+    .then((response) => {
+      succ(response.data);
+    })
+    .catch((error) => {
+      fail(error.response);
+    });
+};
 export const deletePFA = (_id) => {
   axios
     .delete(`${REACT_APP_API_HOST}/PFAens/${_id}`, makeHeader())
@@ -125,4 +135,15 @@ export const getEnseignant = (succ, fail) => {
     .catch((error) => {
       fail(error.response);
     });
+};
+export const AffectStudent = async (studentId, pfaId) => {
+  try {
+    await axios.put(
+      `${REACT_APP_API_HOST}/PFA/AffectStudentPFA/${studentId}/${pfaId}`,
+      {},
+      makeHeader()
+    );
+  } catch (err) {
+    console.log(err);
+  }
 };
