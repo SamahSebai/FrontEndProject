@@ -25,7 +25,7 @@ export default function RegisterAlumni() {
     try {
       setError(false);
       const res = await axios.post(
-        "http://localhost:4000/Api/V1/register",
+        "http://localhost:4000/Api/V1/registerAlumni",
         {
           firstName,
           lastName,
