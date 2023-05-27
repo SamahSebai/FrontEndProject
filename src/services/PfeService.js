@@ -117,6 +117,18 @@ export const selectpfe = async (_id, toggle) => {
       console.log(error);
     });
 };
+
+export const etudiantidpfe = async (_id, toggle) => {
+  axios
+    .get(`${REACT_APP_API_HOST}/pfe/${_id}`, makeHeader())
+    .then((response) => {
+      console.log(response.data);
+      toggle();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 export const getStatBySociete = (succ, fail) => {
   axios
     .get(`${REACT_APP_API_HOST}/PFEStatSoc`, makeHeader())

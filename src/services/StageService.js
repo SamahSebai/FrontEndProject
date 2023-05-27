@@ -17,8 +17,8 @@ export const addStage = async (
   Societe,
   Specialite,
   Technologie,
-  DateDebut,
-  DateFin
+  dateDebut,
+  dateFin
 ) => {
   try {
     const res = await axios.post(
@@ -29,8 +29,8 @@ export const addStage = async (
         Societe,
         Specialite,
         Technologie,
-        DateDebut,
-        DateFin,
+        dateDebut,
+        dateFin,
       },
       makeHeader()
     );

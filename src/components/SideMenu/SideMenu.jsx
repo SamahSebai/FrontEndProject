@@ -82,7 +82,7 @@ const SideMenu = ({ user }) => {
       icon: <MdEmojiPeople />,
     },
     {
-      path: "/statistiques_pfe",
+      path: "/statistiquespfe",
       name: "Statistiques des pfes",
       icon: <MdEmojiPeople />,
     },
@@ -131,12 +131,12 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/addPFE",
-      name: "add PFE",
+      name: "add_PFE",
       icon: <FaProjectDiagram />,
     },
     {
       path: "/addStage",
-      name: "add Stage été",
+      name: "add_Stage_été",
       icon: <AiOutlineProject />,
     },
     {

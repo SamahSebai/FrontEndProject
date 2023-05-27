@@ -30,12 +30,13 @@ const Pfe = () => {
   };
   return (
     <div style={{ flexGrow: 1 }} className="p-2">
-      <form onSubmit={handleSubmit}>
+      <form className="container1" onSubmit={handleSubmit}>
         <legend>PFE</legend>
 
         <div class="form-group">
           <label for="">Titre</label>
           <input
+            name="titre"
             type="text"
             class="form-control"
             value={titre}
@@ -47,6 +48,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Sujet du PFE</label>
           <input
+            name="sujet"
             type="text"
             class="form-control"
             value={sujet}
@@ -58,6 +60,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Societé</label>
           <input
+            name="societe"
             type="text"
             class="form-control"
             value={societe}
@@ -69,6 +72,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Spécialité</label>
           <input
+            name="specialite"
             type="text"
             class="form-control"
             value={specialite}
@@ -80,6 +84,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Pays</label>
           <select
+            name="pays"
             class="form-control"
             required="required"
             value={pays}
@@ -95,6 +100,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Technologies</label>
           <input
+            name="technologie"
             type="text"
             class="form-control"
             value={technologie}
@@ -106,6 +112,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Date de Début</label>
           <input
+            name="DateDebut"
             type="date"
             class="form-control"
             value={makeDate2(DateDebut)}
@@ -117,6 +124,7 @@ const Pfe = () => {
         <div class="form-group">
           <label for="">Date de Fin</label>
           <input
+            name="DateFin"
             type="date"
             class="form-control"
             value={makeDate2(DateFin)}

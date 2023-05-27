@@ -12,6 +12,8 @@ const ElemPfeEns = ({
   choisirpfe,
   toggle,
   Encadrant,
+  firstName,
+  lastName,
 }) => {
   return (
     <div className="pfe-card p-2">
@@ -23,6 +25,9 @@ const ElemPfeEns = ({
         <span>
           {dateDebut} --- {dateFin}
         </span>
+        <p>
+          Nom et prénom de l'étudiant: {firstName} {lastName}
+        </p>
       </div>
       <div>
         {!Encadrant && (

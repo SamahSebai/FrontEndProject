@@ -127,11 +127,11 @@ function App() {
       getetat();
       console.log(etat);
       console.log(user);
+      getCrudevent();
+      getCrudenseignant();
+      getCrudetudiant();
     }
     setloading(false);
-    getCrudevent();
-    getCrudenseignant();
-    getCrudetudiant();
   }, [user]);
 
   return (

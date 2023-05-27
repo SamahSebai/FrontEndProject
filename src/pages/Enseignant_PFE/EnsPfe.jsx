@@ -11,6 +11,8 @@ const EnsPfe = () => {
   const [id, setid] = useState("");
   const [pfesnonaffecte, setpfesnonaffecte] = useState([]);
   const [mespfes, setmespfes] = useState([]);
+  // const [firstName, setfirstName] = useState("haha");
+  // const [lastName, setlastName] = useState("haha");
   const [popup, setpopup] = useState(false);
   const togglePopup = () => {
     setpopup(!popup);
@@ -55,6 +57,8 @@ const EnsPfe = () => {
           choisirpfe={setid}
           toggle={togglePopup}
           Encadrant={pfe.Encadrant}
+          // firstName={firstName}
+          // lastName={lastName}
         />
       ))}
       {popup && (
