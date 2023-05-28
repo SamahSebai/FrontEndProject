@@ -22,6 +22,7 @@ export const addSaison = async (Description, DateDebut, Datefin) => {
       },
       makeHeader()
     );
+    window.location.reload();
     console.log(res);
   } catch (err) {
     console.log(err);

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("Pfe Component", () => {
   beforeEach(() => {
-    cy.loginasstudent("student321@gmail.com", "mohsen123"); // Update the URL if needed
+    cy.loginasstudent("studentmail@gmail.com", "password"); // Update the URL if needed
   });
 
   it("should add pfe when user doesnt already have pfe and submit successfully", () => {
@@ -39,7 +39,6 @@ describe("Pfe Component", () => {
     cy.get('button[type="submit"]').click();
     cy.wait("@ajouterpfe").then((interception) => {
       expect(interception.response.statusCode).to.equal(409);
-      pfeId = interception.response.body._id;
     });
     // Assert the expected behavior when a required field is missing
     // For example, you could assert that an error message is displayed or the form is not submitted.

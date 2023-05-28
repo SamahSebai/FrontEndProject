@@ -23,7 +23,7 @@ const Saison = () => {
   };
   return (
     <div style={{ flexGrow: 1 }} className="p-2">
-      <form onSubmit={handleSubmit}>
+      <form className="container1" onSubmit={handleSubmit}>
         <legend>PFE</legend>
 
         <div class="form-group">

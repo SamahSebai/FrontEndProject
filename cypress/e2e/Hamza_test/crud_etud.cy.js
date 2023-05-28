@@ -7,9 +7,6 @@ describe("Student API", () => {
     cy.loginadmin("sameh.sebai.333@gmail.com", "1234567").then(() => {
       authToken = window.localStorage.getItem("token");
     });
-  });
-
-  it("creates a new student", () => {
     cy.request({
       method: "POST",
       url: "http://localhost:4000/Api/V1/register",
@@ -19,7 +16,7 @@ describe("Student API", () => {
       body: {
         firstName: "student",
         lastName: "student",
-        email: "studentmail@gmail.com",
+        email: "studentmail102@gmail.com",
         password: "password",
         niveau: "1er",
         classe: "license",
@@ -28,9 +25,33 @@ describe("Student API", () => {
       },
     }).then((response) => {
       expect(response.status).to.equal(201);
-      studentId = response.body._id;
+      studentId = response.body.id;
     });
   });
+
+  // it("creates a new student", () => {
+  //   cy.request({
+  //     method: "POST",
+  //     url: "http://localhost:4000/Api/V1/register",
+  //     headers: {
+  //       Authorization: `Bearer ${authToken}`,
+  //     },
+  //     body: {
+  //       firstName: "student",
+  //       lastName: "student",
+  //       email: "studentmail102@gmail.com",
+  //       password: "password",
+  //       niveau: "1er",
+  //       classe: "license",
+  //       datedeNaissanec: "15-04-1998",
+  //       role: "Etudiant",
+  //     },
+  //   }).then((response) => {
+  //     expect(response.status).to.equal(201);
+  //     alert(JSON.stringify(response.body));
+  //     studentId = response.body.id;
+  //   });
+  // });
 
   it("updates a student", () => {
     cy.request({
@@ -48,7 +69,7 @@ describe("Student API", () => {
     });
   });
 
-  it("deletes a blog", () => {
+  it("deletes a student", () => {
     cy.request({
       method: "DELETE",
       url: `http://localhost:4000/Api/V1/Etudiant/${studentId}`,

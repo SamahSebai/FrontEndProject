@@ -224,7 +224,6 @@ const SignedRoutes = ({
           <Route path="/listepfe" element={<PFEList />} />
           <Route path="/statistiquespfe" element={<Stat />} />
           <Route path="/pfa-admin" element={<PfaAdmin />} />
-          <Route path="/*" element={<Navigate to={"/dashboard"} />} />
         </Routes>
       )}
       {user === "Etudiant" && (

@@ -114,7 +114,7 @@ const Stage = () => {
             name="dateFin"
             type="date"
             class="form-control"
-            value={makeDate2(dateDebut)}
+            value={makeDate2(dateFin)}
             placeholder="la date de fin de votre stage"
             onChange={(e) => setdateFin(e.target.value)}
           />

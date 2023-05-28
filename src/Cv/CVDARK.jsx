@@ -60,7 +60,7 @@ function CVDARK({ cv, user }) {
     >
       <h1 id="cv-title1">Curriculum Vitae</h1>
 
-      <div className="section">
+      {/* <div className="section">
         <h2 id="cv-title1" className="section-title">
           information generale
         </h2>
@@ -70,7 +70,7 @@ function CVDARK({ cv, user }) {
         <p>Adresse: {cv.compte.address}</p>
         <p>Spécialité: {cv.compte.Specialite}</p>
         <p> Classe: {cv.compte.classe}</p>
-      </div>
+      </div> */}
 
       <div className="section">
         <h2 id="cv-title1" className="section-title">
