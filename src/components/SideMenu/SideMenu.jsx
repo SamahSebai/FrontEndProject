@@ -120,13 +120,13 @@ const SideMenu = ({ user }) => {
     },
     {
       path: "/UpdateCV",
-      name: "Update CV",
+      name: "Update_CV",
       icon: <GrUpdate />,
     },
 
     {
       path: "/MainCv",
-      name: "Show CV",
+      name: "Show_CV",
       icon: <FaTh />,
     },
     {

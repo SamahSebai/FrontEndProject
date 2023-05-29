@@ -62,9 +62,9 @@ function MainCv() {
   return (
     <div>
       {cv.type_cv === 2 ? (
-        <CVDARK cv={cv} user={user} />
+        <CVDARK name="cv-dark" cv={cv} user={user} />
       ) : (
-        <CVLIGHT cv={cv} user={user} />
+        <CVLIGHT name="cv-light" cv={cv} user={user} />
       )}
     </div>
   );

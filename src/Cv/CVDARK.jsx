@@ -55,12 +55,13 @@ const InitItems = {
 function CVDARK({ cv, user }) {
   return (
     <div
+      name="cv-dark"
       className="cv-container"
       style={{ marginLeft: "500px", width: "642px" }}
     >
       <h1 id="cv-title1">Curriculum Vitae</h1>
 
-      {/* <div className="section">
+      <div className="section">
         <h2 id="cv-title1" className="section-title">
           information generale
         </h2>
@@ -70,7 +71,7 @@ function CVDARK({ cv, user }) {
         <p>Adresse: {cv.compte.address}</p>
         <p>Spécialité: {cv.compte.Specialite}</p>
         <p> Classe: {cv.compte.classe}</p>
-      </div> */}
+      </div>
 
       <div className="section">
         <h2 id="cv-title1" className="section-title">

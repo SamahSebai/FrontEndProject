@@ -55,6 +55,7 @@ const InitItems = {
 function CVLIGHT({ cv, user }) {
   return (
     <div
+      name="cv-light"
       id="cv-container11"
       className="cv-container11"
       style={{
@@ -66,7 +67,7 @@ function CVLIGHT({ cv, user }) {
     >
       <h1 id="cv-title">Curriculum Vitae</h1>
 
-      {/* <div id="section11" className="section11">
+      <div id="section11" className="section11">
         <h2 id="cv-title" className="section-title">
           information generale
         </h2>
@@ -76,7 +77,7 @@ function CVLIGHT({ cv, user }) {
         <p>Adresse: {cv.compte.address}</p>
         <p>Spécialité: {cv.compte.Specialite}</p>
         <p> Classe: {cv.compte.classe}</p>
-      </div> */}
+      </div>
 
       <div id="section11" className="section11">
         <h2 id="cv-title" className="section-title">
